@@ -1,0 +1,12 @@
+.menu-header-mobile {
+  @include flex-container;
+  justify-content: column;
+
+  &__text {
+    &:hover {
+      color: #b48e40;
+      padding-bottom: 1.5%;
+      border-bottom: 1px solid #b48e40;
+    }
+  }
+}
