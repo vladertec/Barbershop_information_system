@@ -1,0 +1,44 @@
+.error {
+  @include flex-container;
+  flex-direction: row;
+  margin-top: 3%;
+  margin-bottom: -3%;
+  height: 20%;
+
+  &__message-container {
+    @include flex-container;
+    flex-direction: column;
+    width: 25%;
+  }
+
+  &__message {
+    font-weight: bold;
+    font-size: 2vw;
+    font-family: Arima Madurai;
+    color: white;
+    margin-bottom: 10%;
+  }
+
+  &__btn {
+    background-color: #b48e40;
+    padding: 12%;
+    color: white;
+    cursor: pointer;
+    font-size: 1.5vw;
+    font-weight: bold;
+
+    &:hover {
+      font-weight: bold;
+      padding: 14%;
+    }
+  }
+
+  &__img {
+    max-width: 60%;
+    height: auto;
+  }
+
+  @include phone {
+    height: 130vw;
+  }
+}

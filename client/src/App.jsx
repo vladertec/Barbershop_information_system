@@ -2,6 +2,8 @@ import "./App.scss"
 import ScrollToTop from "react-scroll-to-top"
 import Header from "./components/Header/Header"
 import { useEffect } from "react"
+import Routing from "./components/Routing/Routing"
+import Footer from "./components/Footer/Footer"
 
 function App() {
   useEffect(() => {
@@ -11,8 +13,8 @@ function App() {
   return (
     <div className="App">
       <Header />
-      {/* <Routing />
-      <Footer /> */}
+      <Routing />
+      <Footer />
       <ScrollToTop smooth />
     </div>
   )

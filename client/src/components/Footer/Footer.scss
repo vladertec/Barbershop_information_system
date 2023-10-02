@@ -1,0 +1,137 @@
+.footer-wrapper {
+  &__information {
+    margin-top: 8%;
+    margin-bottom: 6%;
+    padding-left: 11%;
+    padding-right: 5%;
+    color: white;
+    display: grid;
+    justify-items: center;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    align-items: center;
+
+    .footer-container {
+      &__logo-information {
+        .footer-logo {
+          &__img {
+            width: 50%;
+            height: auto;
+          }
+          &__text {
+            margin-top: 3%;
+            font-size: 1vw;
+            font-family: "Arimo", serif;
+            line-height: 20px;
+            color: #999999;
+          }
+        }
+      }
+
+      &__services {
+        .service-list {
+          &__title {
+            font-size: 1.5vw;
+            font-weight: bold;
+            font-family: "Arima Madurai", serif;
+          }
+          &__items {
+            margin-top: 5%;
+            .service-menu {
+              &__item {
+                margin-top: 14%;
+                font-family: "Arimo", serif;
+                font-size: 1vw;
+                color: #999999;
+                cursor: pointer;
+              }
+              &__item:hover {
+                color: #b48e40;
+              }
+            }
+          }
+        }
+      }
+
+      &__contact {
+        .contact-list {
+          &__title {
+            font-size: 1.5vw;
+            font-weight: bold;
+            font-family: "Arima Madurai", serif;
+          }
+
+          &__container {
+            .address {
+              margin-top: 5%;
+              &__block {
+                display: flex;
+                align-items: center;
+                margin-top: 7%;
+                .contact-address {
+                  &__icon {
+                    width: 8%;
+                    height: auto;
+                  }
+                  &__text {
+                    padding-left: 4%;
+                    font-size: 1vw;
+                    color: #999999;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+
+      &__follow {
+        .network {
+          &__title {
+            font-size: 1.5vw;
+            font-weight: bold;
+            font-family: "Arima Madurai", serif;
+          }
+
+          &__block {
+            margin-top: 5%;
+            .network-icons {
+              display: flex;
+              margin-top: 1%;
+              &__img {
+                padding-right: 5%;
+                width: 33%;
+                height: auto;
+                cursor: pointer;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  &__copyright {
+    width: 100%;
+    background-color: #161617;
+    @include flex-container;
+    height: 5vw;
+    font-family: "Arimo", serif;
+
+    .author {
+      &__text {
+        font-size: 0.8vw;
+        color: white;
+      }
+
+      &__name {
+        font-size: 0.8vw;
+        cursor: pointer;
+        color: #b48e40;
+      }
+
+      &__name:hover {
+        border-bottom: 1px solid #b48e40;
+      }
+    }
+  }
+}
