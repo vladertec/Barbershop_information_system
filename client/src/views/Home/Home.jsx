@@ -91,28 +91,28 @@ function Home() {
         <div className="statistic__black">
           <StatisticBox
             imgPath={"./img/statistic-1.svg"}
-            number="15k+"
-            name="Happy Customers"
+            number="12k+"
+            name="Customers"
           />
           <StatisticBox
             imgPath={"./img/statistic-2.svg"}
-            number="20k+"
-            name="Custom Haircut"
+            number="10k+"
+            name="Haircuts"
           />
           <StatisticBox
             imgPath={"./img/statistic-3.svg"}
-            number="23"
-            name="Our Salons"
+            number="3pc"
+            name="Salons"
           />
           <StatisticBox
             imgPath={"./img/statistic-4.svg"}
             number="18k+"
-            name="Custom Haircut"
+            name="Haircuts"
           />
         </div>
       </section>
 
-{/* 
+
       <section className="home-wrapper__gallery projects">
         <p className="projects__title">Our Gallery</p>
         <p className="projects__description">We Have Done Lots Of Projects</p>
@@ -146,11 +146,11 @@ function Home() {
           ></img>
         </div>
         <Link to="/photo">
-          <button type="button" className="info__btn">
+          <button type="button" className="projects__btn">
             SEE MORE »
           </button>
         </Link>
-      </section> */} 
+      </section> 
        {/* <SubscribeEmail /> */}
     </div>
   )
