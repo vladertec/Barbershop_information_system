@@ -1,0 +1,22 @@
+.statistic-card {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &__img {
+    width: 80%;
+    height: auto;
+  }
+
+  &__number {
+    font-family: "Arima Madurai", serif;
+    color: white;
+    font-weight: bold;
+    font-size: 3vw;
+  }
+  &__name {
+    font-family: "Arimo", serif;
+    color: #999999;
+    font-size: 1vw;
+  }
+}

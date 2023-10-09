@@ -1,41 +1,64 @@
 .service-card {
-    background-color: black;
-    padding-left: 14%;
-    padding-right: 13%;
-    color: white;
-    border-radius: 5%;
-  
-    &__img {
-      margin-top: 14%;
-      width: 25%;
-      height: auto;
-    }
-  
-    &__title {
-      font-family: "Arima Madurai", serif;
-      font-weight: bold;
-      margin-top: 12%;
-      font-size: 1.4vw;
-    }
-  
-    &__description {
-      margin-top: 12%;
-      color: #cccccc;
-      font-family: "Arimo", serif;
-      font-size: 0.95vw;
-      text-align: left;
-      line-height: 250%;
-    }
-  
-    &__btn {
-      color: #cccccc;
-      margin-top: 15%;
-      font-size: 1.6vw;
-      cursor: pointer;
-      margin-bottom: 15%;
-    }
+  background-color: black;
+  padding-left: 14%;
+  padding-right: 13%;
+  color: white;
+  border-radius: 5%;
+
+  &__img {
+    margin-top: 14%;
+    width: 25%;
+    height: auto;
   }
-  
-  .service-card:hover {
+
+  &__title {
+    font-family: "Arima Madurai", serif;
+    font-weight: bold;
+    margin-top: 12%;
+    font-size: 1.4vw;
+  }
+
+  &__description {
+    margin-top: 12%;
+    color: #cccccc;
+    font-family: "Arimo", serif;
+    font-size: 0.95vw;
+    text-align: left;
+    line-height: 250%;
+  }
+
+  &__btn {
+    color: #cccccc;
+    margin-top: 15%;
+    font-size: 1.6vw;
+    cursor: pointer;
+    margin-bottom: 15%;
+  }
+
+  &:hover {
     border: 2px solid#b48e40;
   }
+
+  @include phone {
+    @include flex-container;
+    flex-direction: column;
+
+    &__img {
+      width: 40%;
+      height: auto;
+    }
+
+    &__title {
+      font-size: 2vw;
+    }
+
+    &__description {
+      text-align: center;
+      font-size: 1.4vw;
+    }
+
+    &__btn {
+      font-size: 3vw;
+    }
+  }
+}

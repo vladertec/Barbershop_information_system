@@ -1,5 +1,5 @@
 import ServiceCard from "../../components/ServiceCard/ServiceCard"
-// import StatisticBox from "../../components/StatisticBox/StatisticBox"
+import StatisticBox from "../../components/StatisticBox/StatisticBox"
 // import SubscribeEmail from "../../components/SubscribeEmail/SubscribeEmail"
 import { Link } from "react-router-dom"
 
@@ -21,9 +21,9 @@ function Home() {
       </section>
 
       <section className="home-wrapper__services menu-service">
-        <div className="menu-service__title text">
-          <p className="text__our">Our Services</p>
-          <p className="text__popular">Popular Services</p>
+        <div className="menu-service__title">
+          <p className="menu-service__our">Our Services</p>
+          <p className="menu-service__popular">Popular Services</p>
         </div>
         <div className="menu-service__cards">
           <ServiceCard
@@ -69,9 +69,9 @@ function Home() {
         </div>
       </section>
 
-      {/* <section className="home-wrapper__about statistic">
-        <div className="statistic__grey video">
-          <video className="video__barber" controls autoPlay>
+      <section className="home-wrapper__about statistic">
+        <div className="statistic__video-container">
+          <video className="statistic__video" controls autoPlay>
             <source src="./video/barber.mp4" type="video/mp4" />
           </video>
           <div className="statistic__about text-info">
@@ -112,6 +112,7 @@ function Home() {
         </div>
       </section>
 
+{/* 
       <section className="home-wrapper__gallery projects">
         <p className="projects__title">Our Gallery</p>
         <p className="projects__description">We Have Done Lots Of Projects</p>
