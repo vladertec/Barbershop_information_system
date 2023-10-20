@@ -1,0 +1,19 @@
+.logo-brands {
+  width: 100%;
+  margin-top: 8%;
+  @include flex-container;
+  padding-right: 11%;
+  padding-left: 11%;
+
+  &__container {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    .icon-brands {
+      &__img {
+        width: 8%;
+        height: auto;
+      }
+    }
+  }
+}

@@ -1,3 +1,4 @@
+import EmailSubscribe from "../../components/EmailSubscribe/EmailSubscribe"
 import ServiceCard from "../../components/ServiceCard/ServiceCard"
 import StatisticBox from "../../components/StatisticBox/StatisticBox"
 // import SubscribeEmail from "../../components/SubscribeEmail/SubscribeEmail"
@@ -151,7 +152,7 @@ function Home() {
           </button>
         </Link>
       </section> 
-       {/* <SubscribeEmail /> */}
+      <EmailSubscribe/> 
     </div>
   )
 }

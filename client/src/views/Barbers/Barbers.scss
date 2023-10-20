@@ -1,0 +1,11 @@
+.barbers-wrapper {
+  &__slider {
+    margin-top: 2.5%;
+    @include flex-container;
+  }
+
+  &__brand-logo {
+    margin-top: -2%;
+  }
+}
+
