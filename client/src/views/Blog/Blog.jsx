@@ -7,12 +7,12 @@ import { useDispatch } from "react-redux"
 import { useSelector } from "react-redux"
 
 const Blog = () => {
-//   const dispatch = useDispatch()
-//   const newsList = useSelector((state) => state.news.newsList)
+  const dispatch = useDispatch()
+  const newsList = useSelector((state) => state.news.newsList)
 
-//   useEffect(() => {
-//     dispatch(fetchNews())
-//   }, [])
+  useEffect(() => {
+    dispatch(fetchNews())
+  })
 
   return (
     <div className="blog-section">

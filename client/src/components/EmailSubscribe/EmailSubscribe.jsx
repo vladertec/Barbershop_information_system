@@ -1,11 +1,12 @@
 import { useState } from "react"
+import { sendEmail } from "../../api/email"
 
 const SubscribeEmail = () => {
-  //   const [email, setEmail] = useState({ email: "" })
+  const [email, setEmail] = useState({ email: "" })
 
-  //   const sendEmailInformation = (e) => {
-  //     sendEmail(email)
-  //   }
+  const sendEmailInformation = (e) => {
+    sendEmail(email)
+  }
 
   return (
     <section className="email">
@@ -14,14 +15,14 @@ const SubscribeEmail = () => {
         <input
           className="email__input"
           type="email"
-          //   value={email.email}
-          //   onInput={(e) => setEmail({ ...email, email: e.target.value })}
+          value={email.email}
+          onInput={(e) => setEmail({ ...email, email: e.target.value })}
           placeholder="Email"
           maxLength="22"
           required
         ></input>
         <button
-          //   onClick={sendEmailInformation}
+          onClick={sendEmailInformation}
           className="email__btn"
           type="button"
         >
