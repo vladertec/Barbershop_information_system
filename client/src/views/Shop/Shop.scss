@@ -1,0 +1,33 @@
+.shop-container {
+  &__cards {
+    margin-top: 3%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    cursor: pointer;
+    align-items: center;
+    justify-items: center;
+    padding-left: 10%;
+    padding-right: 10%;
+  }
+
+  &__pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2%;
+    color: white;
+  }
+
+  @include phone {
+    &__cards {
+      margin-top: 8%;
+      grid-template-columns: 1fr 1fr;
+      padding-left: 8%;
+      padding-right: 8%;
+    }
+
+    &__pagination {
+      margin-top: 0%;
+    }
+  }
+}

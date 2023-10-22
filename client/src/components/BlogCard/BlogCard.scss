@@ -1,0 +1,83 @@
+.blog-card {
+  border: 1px solid #b48e40;
+  width: 100%;
+  display: flex;
+  color: #fff;
+
+  &__photo-container {
+    width: 23%;
+  }
+
+  &__img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  &__text-container {
+    margin-left: 1%;
+  }
+
+  &__date {
+    font-size: 0.9vw;
+    margin-top: 1%;
+    font-family: "Arima Madurai", serif;
+  }
+
+  &__title {
+    margin-top: 1%;
+    font-size: 1.2vw;
+    font-weight: bold;
+    font-family: "Arima Madurai", serif;
+  }
+  &__description {
+    font-size: 1.2vw;
+    margin-top: 1%;
+    font-family: "Arima", serif;
+    text-align: justify;
+    margin-right: 1%;
+  }
+
+  &:hover {
+    opacity: 50%;
+  }
+
+
+
+
+
+  @include phone {
+    display: flex;
+    flex-direction: column;
+    border: none;
+    padding: 6% 15%;
+
+    &__photo-container {
+      width: 100%;
+    }
+
+    &__img {
+      max-width: 100%;
+      height: auto;
+    }
+
+    &__text-container {
+      margin-left: 0%;
+    }
+
+    &__date {
+     
+    }
+
+    &__title {
+      margin-top: 3%;
+      font-size: 3.2vw;
+      font-weight: bold;
+      text-align: center;
+    }
+    &__description {
+      font-size: 1.7vw;
+      margin-top: 3%;
+      text-align: center;
+    }
+  }
+}

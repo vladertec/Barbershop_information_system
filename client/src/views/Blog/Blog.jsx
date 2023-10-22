@@ -1,10 +1,10 @@
 import { useEffect } from "react"
 import { Link } from "react-router-dom"
-import BlogCard from "../../components/BlogCard/BlogCard"
 import EmailSubscribe from "../../components/EmailSubscribe/EmailSubscribe"
 import { fetchNews } from "../../store/news/action"
 import { useDispatch } from "react-redux"
 import { useSelector } from "react-redux"
+import BlogCard from "../../components/BlogCard/BlogCard"
 
 const Blog = () => {
   const dispatch = useDispatch()
@@ -16,15 +16,19 @@ const Blog = () => {
 
   return (
     <div className="blog-section">
-      <section className="blog-section__photo img">
-        <img className="img__blog" src="./img/blog.png" alt="blogPicture" />
+      <section className="blog-section__photo">
+        <img
+          className="blog-section__blog"
+          src="./img/blog.png"
+          alt="blogPicture"
+        />
       </section>
 
-      <section className="blog-section__blogs blogs-container">
+      <section className="blog-section__blogs">
         {newsList.map((blog) => {
           return (
             <Link
-              className="blogs-container__link"
+              className="blog-section__link"
               to={"/blog/${blog._id}"}
               key={blog._id}
             >
@@ -41,29 +45,29 @@ const Blog = () => {
 
       <EmailSubscribe />
 
-      <section className="blog-section__haircut photo-blog">
+      <section className="blog-section__haircut">
         <img
-          className="photo-blog__img"
+          className="blog-section__img"
           src="./img/blog/haircut-1.png"
           alt="photoBlog"
         />
         <img
-          className="photo-blog__img"
+          className="blog-section__img"
           src="./img/blog/haircut-2.png"
           alt="photoBlog"
         />
         <img
-          className="photo-blog__img"
+          className="blog-section__img"
           src="./img/blog/haircut-3.png"
           alt="photoBlog"
         />
         <img
-          className="photo-blog__img"
+          className="blog-section__img"
           src="./img/blog/haircut-4.png"
           alt="photoBlog"
         />
         <img
-          className="photo-blog__img"
+          className="blog-section__img"
           src="./img/blog/haircut-5.png"
           alt="photoBlog"
         />

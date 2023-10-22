@@ -1,0 +1,123 @@
+.contact-container {
+  width: 100%;
+
+  &__help {
+    padding-left: 15%;
+    padding-right: 15%;
+    display: flex;
+
+    .contact-help {
+      &__container {
+        margin-top: 10%;
+        margin-bottom: 4%;
+        width: 33%;
+        color: #fff;
+        border: 1px solid #b48e40;
+        border-radius: 5%;
+        padding-left: 2%;
+        padding-right: 2%;
+
+        .contact-us {
+          &__text {
+            margin-top: 5%;
+            color: #b48e40;
+            font-size: 1vw;
+            font-weight: bold;
+            font-family: "Arima Madurai", serif;
+          }
+
+          &__title {
+            margin-top: 4%;
+            font-size: 2.4vw;
+            font-weight: bold;
+            font-family: "Arima Madurai", serif;
+          }
+
+          &__help-block {
+            display: flex;
+            margin-bottom: 5%;
+            align-items: center;
+            margin-top: 10%;
+          }
+
+          &__img {
+            width: 100%;
+            height: auto;
+          }
+
+          &__text-block {
+            margin-left: 3%;
+            text-align: justify;
+          }
+
+          &__title-emergency {
+            font-size: 0.9vw;
+          }
+
+          &__info {
+            margin-top: 5%;
+            font-size: 1vw;
+            font-family: "Arima Madurai", serif;
+            color: #999999;
+          }
+        }
+      }
+
+      &__send-message {
+        margin-top: 6%;
+        margin-left: 35%;
+        width: 30%;
+        border: 1px solid #b48e40;
+        border-radius: 5%;
+        background-color: black;
+        padding-right: 2%;
+        padding-left: 2%;
+        .message {
+          &__title {
+            margin-top: 8%;
+            color: white;
+            font-weight: bold;
+            font-size: 2vw;
+            font-family: "Arima Madurai", serif;
+          }
+
+          &__line {
+            width: 23%;
+            background-color: #b48e40;
+            height: 1px;
+            margin-top: 2%;
+          }
+          &__input-block {
+            @include flex-container;
+            flex-direction: column;
+          }
+
+          &__input {
+            margin-top: 8%;
+            font-size: 1.65vw;
+            background-color: black;
+            border: 1px solid #999999;
+            font-family: "Arima Madurai", serif;
+            color: white;
+          }
+
+          &__btn {
+            margin-top: 9%;
+            color: white;
+            background-color: #b48e40;
+            padding: 15px 20px;
+            border-radius: 5%;
+            cursor: pointer;
+            margin-bottom: 6%;
+          }
+        }
+      }
+    }
+  }
+
+
+
+  @include phone{
+
+  }
+}
