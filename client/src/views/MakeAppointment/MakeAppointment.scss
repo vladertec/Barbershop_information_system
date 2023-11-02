@@ -1,0 +1,46 @@
+.appointment-container {
+    @include flex-container;
+    flex-direction: column;
+    &__title {
+      font-size: 2.4vw;
+      color: white;
+      font-weight: bold;
+      margin-top: 2%;
+      font-family: "Arima Madurai", serif;
+    }
+  
+    &__form {
+      @include flex-container;
+      flex-direction: column;
+      border: 1px solid #b48e40;
+      width: 25%;
+      margin-top: 3%;
+      border-radius: 4%;
+      .book-form {
+        &__input {
+          margin-top: 8%;
+          font-size: 1.65vw;
+          background-color: black;
+          border: 1px solid #999999;
+          font-family: "Arima Madurai", serif;
+          color: white;
+          border-radius: 4%;
+          cursor: pointer;
+        }
+  
+        &__btn {
+          margin-top: 9%;
+          color: white;
+          background-color: #b48e40;
+          padding: 3% 10%;
+          border-radius: 5%;
+          cursor: pointer;
+          margin-bottom: 6%;
+        }
+  
+        &__btn:hover {
+          font-weight: bold;
+        }
+      }
+    }
+  }

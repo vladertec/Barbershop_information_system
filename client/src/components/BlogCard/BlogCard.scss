@@ -6,6 +6,7 @@
 
   &__photo-container {
     width: 23%;
+    margin: 0.5% 0.5% 0% 0.5%;
   }
 
   &__img {
@@ -41,10 +42,6 @@
     opacity: 50%;
   }
 
-
-
-
-
   @include phone {
     display: flex;
     flex-direction: column;
@@ -65,7 +62,6 @@
     }
 
     &__date {
-     
     }
 
     &__title {

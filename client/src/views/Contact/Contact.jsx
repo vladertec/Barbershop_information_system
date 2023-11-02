@@ -16,15 +16,17 @@ const Contact = () => {
 
   return (
     <div className="contact-container">
-      <section className="blog-section__photo img">
+      <section className="contact-container__photo-container">
         <img
-          className="img__blog"
+          className="contact-container__img"
           src="./img/contact/map.png"
           alt="mapPicture"
         />
       </section>
 
       <section className="contact-container__help contact-help">
+        
+        
         <div className="contact-help__container contact-us">
           <p className="contact-us__text">Contact Us</p>
           <h3 className="contact-us__title">
@@ -71,7 +73,7 @@ const Contact = () => {
             <div className="contact-us__text-block">
               <p className="contact-us__title-emergency">Office Address</p>
               <p className="contact-us__info">
-                66W3+Q4G Buxton, United Kingdom
+                66W3+Q4G Buxton
               </p>
             </div>
           </div>
@@ -79,9 +81,7 @@ const Contact = () => {
 
 
 
-        
-
-
+    
         
 
         <div className="contact-help__send-message message">

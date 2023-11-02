@@ -1,0 +1,55 @@
+.slider {
+  &__slider-container {
+    position: relative;
+    margin-top: 5%;
+    @include flex-container;
+    padding: 0% 6%;
+    
+    .slider-elements {
+      &__image {
+        max-width: 100%;
+        height: auto;
+        border-radius: 5%;
+      }
+
+      &__right-arrow {
+        position: absolute;
+        top: 50%;
+        right: 4%;
+        font-size: 6vw;
+        color: #b48e40;
+        z-index: 10;
+        cursor: pointer;
+        user-select: none;
+      }
+
+      &__left-arrow {
+        position: absolute;
+        top: 50%;
+        left: 4%;
+        font-size: 6vw;
+        color: #b48e40;
+        z-index: 10;
+        cursor: pointer;
+        user-select: none;
+      }
+    }
+  }
+
+  &__logo-email-container {
+    margin-top: 10%;
+    padding-left: 0%;
+    padding-right: 0%;
+  }
+}
+
+.slide {
+  opacity: 0;
+  transition-duration: 1s ease;
+}
+
+.slide.active {
+  opacity: 1;
+  transition-duration: 1s;
+  transform: scale(1.08);
+}

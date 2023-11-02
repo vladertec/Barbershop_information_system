@@ -1,0 +1,85 @@
+.login {
+  @include flex-container;
+  flex-direction: column;
+  margin-top: 5%;
+
+  &__text {
+    font-size: 2.4vw;
+    color: white;
+    font-weight: bold;
+    font-family: "Arima Madurai", serif;
+  }
+
+  &__login-container {
+    border-radius: 2%;
+    box-shadow: 2px 4px 6px rgba(0, 0, 0, 0.2);
+    max-width: 615px;
+    margin-bottom: 6%;
+    margin-top: 5%;
+    text-align: center;
+    width: 90%;
+  }
+
+  &__input-group {
+    margin-top: 5%;
+    &:nth-last-child(-n + 2) {
+      margin-bottom: 50px;
+    }
+  }
+
+  &__input-name {
+    font-family: "Roboto", sans-serif;
+    max-width: 420px;
+    text-align: left;
+    width: 80%;
+    color: #676767;
+    display: inline-block;
+    margin-bottom: 1%;
+    text-transform: uppercase;
+  }
+
+  &__input {
+    font-family: "Roboto", sans-serif;
+    max-width: 420px;
+    text-align: left;
+    width: 80%;
+    background: #f2f2f5;
+    border-radius: 4px;
+    color: #676767;
+    font-size: 16px;
+    height: 40px;
+    outline: 0;
+    padding: 0 15px;
+    transition: all 0.3s;
+
+    &:focus {
+      background: #b3b0b0;
+      border: 2px solid #a27e34;
+    }
+    &::placeholder {
+      color: #b4b2b2;
+      font-size: 16px;
+    }
+  }
+
+  &__btn {
+    border-radius: 5px;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    font-family: "Open Sans", sans-serif;
+    font-size: 18px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    max-width: 420px;
+    outline: 0;
+    padding: 10px 0;
+    transition: background 0.3s;
+    width: 80%;
+    background: #b48e40;
+
+    &:hover {
+      background: #ea6c0b;
+    }
+  }
+}
