@@ -1,4 +1,3 @@
-import { Box } from "@mui/material"
 import { useEffect } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { Link } from "react-router-dom"
@@ -12,15 +11,16 @@ const Shop = () => {
 
   useEffect(() => {
     dispatch(fetchProducts())
-  }, [])
+  })
 
   return (
     <div className="shop-container">
       <div className="shop-container__cards">
         {productsList.map((product) => {
           return (
-            <Link to={"/shop/${product._id}"} key={product._id}>
+            <Link to={`/shop/${product._id}`} key={product._id}>
               <ProductCard
+                myKeyButton={product._id}
                 name={product.name}
                 description={product.description}
                 photos={product.photos[0]}

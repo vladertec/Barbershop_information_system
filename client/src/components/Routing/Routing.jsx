@@ -8,6 +8,8 @@ import Contact from "../../views/Contact/Contact"
 import Photo from "../../views/Photo/Photo"
 import Login from "../../views/Login/Login"
 import MakeAppointment from "../../views/MakeAppointment/MakeAppointment"
+import Cart from "../../views/Cart/Cart"
+import Favourite from "../../views/Favourite/Favourite"
 
 function Routing() {
   return (
@@ -21,6 +23,8 @@ function Routing() {
       <Route path="/photo" element={<Photo />} />
       <Route path="/login" element={<Login />} />
       <Route path="/appointment" element={<MakeAppointment />} />
+      <Route path="/cart" element={<Cart />} />
+      <Route path="/favourite" element={<Favourite />} />
     </Routes>
   )
 }

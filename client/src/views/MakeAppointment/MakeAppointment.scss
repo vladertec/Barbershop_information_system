@@ -1,4 +1,4 @@
-.appointment-container {
+.appointment {
     @include flex-container;
     flex-direction: column;
     &__title {

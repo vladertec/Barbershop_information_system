@@ -19,8 +19,8 @@ const MakeAppointment = () => {
   }
 
   return (
-    <div className="appointment-container">
-      <p className="appointment-container__title">
+    <div className="appointment">
+      <p className="appointment__title">
         Make a visit to our barbershop
       </p>
       <Formik
@@ -61,7 +61,7 @@ const MakeAppointment = () => {
           isSubmitting,
         }) => (
           <form
-            className="appointment-container__form book-form"
+            className="appointment__form book-form"
             onSubmit={handleSubmit}
           >
             <input

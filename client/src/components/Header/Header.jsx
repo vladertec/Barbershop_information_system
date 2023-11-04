@@ -4,9 +4,11 @@ import HeaderMenuList from "../HeaderMenuList/HeaderMenuList"
 import MenuIcon from "@mui/icons-material/Menu"
 import { useState } from "react"
 import HeaderMenuListPhoneVersion from "../HeaderMenuListPhoneVersion/HeaderMenuListPhoneVersion"
+import { useSelector } from "react-redux"
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false)
+  const cartList = useSelector((state) => state.cart.cartList);
 
   return (
     <div className="header">
@@ -41,9 +43,9 @@ const Header = () => {
             <MenuIcon className="active-container__menu-icon" />
           </Link>
 
-          <Link className="active-container__shopping-link">
+          <Link to="/cart" className="active-container__shopping-link">
             <ShoppingBasketIcon className="active-container__shopping-icon" />
-            <p className="active-container__shopping-number">0</p>
+            <p className="active-container__shopping-number">{cartList.length}</p>
           </Link>
         </div>
       </div>
