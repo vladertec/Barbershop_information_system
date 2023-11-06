@@ -13,13 +13,13 @@ const ProductCard = ({
   const dispatch = useDispatch()
   const cartList = useSelector((state) => state.cart.cartList)
   const productsList = useSelector((state) => state.products.productsList)
-  const favouriteList = useSelector((state) => state.favouriteList)
+  const favouriteList = useSelector((state) => state.favourite.favouriteList)
 
   const buttonBuyClick = (event, key) => {
     event.preventDefault()
-    const buyCardThereIs = cartList.some((product) => product._id === key)
+    const buyCardThereIs = cartList.some((product) => product.vendorCode === key)
     if (!buyCardThereIs) {
-      let productCart = productsList.filter((product) => product._id === key)
+      let productCart = productsList.filter((product) => product.vendorCode === key)
       dispatch(addInCart(productCart[0]))
       //   setModalIsOpen(true);
     }

@@ -2,12 +2,13 @@ import mongoose from "mongoose"
 import Product from "../models/product.js"
 
 const add = async (req, res) => {
-  const { name, description, photos, price } = req.body
+  const { name, description, photos, price, vendorCode } = req.body
   const product = await Product.create({
     name,
     description,
     photos,
     price,
+    vendorCode,
   })
   res.json(product)
 }

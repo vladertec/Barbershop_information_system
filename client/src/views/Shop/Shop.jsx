@@ -11,7 +11,7 @@ const Shop = () => {
 
   useEffect(() => {
     dispatch(fetchProducts())
-  })
+  }, [])
 
   return (
     <div className="shop-container">
@@ -20,7 +20,7 @@ const Shop = () => {
           return (
             <Link to={`/shop/${product._id}`} key={product._id}>
               <ProductCard
-                myKeyButton={product._id}
+                myKeyButton={product.vendorCode}
                 name={product.name}
                 description={product.description}
                 photos={product.photos[0]}

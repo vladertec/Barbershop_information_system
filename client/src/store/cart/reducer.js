@@ -28,9 +28,7 @@ const reducer = (state = initialState, action) => {
     case "REMOVE_PRODUCT_FROM_CART": {
       return {
         ...state,
-        cartList: state.cartList.filter(
-          (card) => card._id !== action.payload
-        ),
+        cartList: state.cartList.filter((card) => card.vendorCode !== action.payload),
       }
     }
 

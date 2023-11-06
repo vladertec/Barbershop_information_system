@@ -4,6 +4,7 @@ import HeaderMenuList from "../HeaderMenuList/HeaderMenuList"
 import MenuIcon from "@mui/icons-material/Menu"
 import { useState } from "react"
 import HeaderMenuListPhoneVersion from "../HeaderMenuListPhoneVersion/HeaderMenuListPhoneVersion"
+import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import { useSelector } from "react-redux"
 
 const Header = () => {
@@ -47,6 +48,10 @@ const Header = () => {
             <ShoppingBasketIcon className="active-container__shopping-icon" />
             <p className="active-container__shopping-number">{cartList.length}</p>
           </Link>
+          <Link to="/favourite" className="active-container__shopping-link">
+            <FavoriteBorderIcon className="active-container__shopping-icon" />
+          </Link>
+         
         </div>
       </div>
     </div>

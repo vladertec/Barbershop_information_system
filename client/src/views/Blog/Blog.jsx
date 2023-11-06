@@ -12,7 +12,7 @@ const Blog = () => {
 
   useEffect(() => {
     dispatch(fetchNews())
-  })
+  }, [])
 
   return (
     <div className="blog-section">

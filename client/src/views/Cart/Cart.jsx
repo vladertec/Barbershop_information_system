@@ -26,7 +26,7 @@ const Cart = () => {
           return (
             <CartCard
               key={card._id}
-              myKeyButton={card._id}
+              myKeyButton={card.vendorCode}
               name={card.name}
               price={card.price}
               photos={card.imagePath}

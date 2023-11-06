@@ -1,4 +1,4 @@
-const getFavoritesListFromLS = () => {
+export const getFavoritesListFromLS = () => {
   try {
     const favorites = localStorage.getItem("myFavorites")
     if (!favorites) return []
@@ -16,10 +16,18 @@ const initialState = {
 const reducer = (state = initialState, action) => {
   switch (action.type) {
     case "ADD_FAVOURITE": {
-      return [...state, action.payload]
+      return {
+        ...state,
+        favouriteList: [...state.favouriteList, action.payload],
+      }
     }
     case "REMOVE_FAVOURITE": {
-      return state.filter((card) => card.vendorCode !== action.payload)
+      return {
+        ...state,
+        favouriteList: state.favouriteList.filter(
+          (card) => card.vendorCode !== action.payload
+        ),
+      }
     }
     default: {
       return state
