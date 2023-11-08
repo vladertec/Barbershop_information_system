@@ -10,6 +10,8 @@ import Login from "../../views/Login/Login"
 import MakeAppointment from "../../views/MakeAppointment/MakeAppointment"
 import Cart from "../../views/Cart/Cart"
 import Favourite from "../../views/Favourite/Favourite"
+import DetailedProductCard from "../../views/DetailedProductCard/DetailedProductCard"
+import DetailedBlogCard from "../../views/DetailedBlogCard/DetailedBlogCard"
 
 function Routing() {
   return (
@@ -25,6 +27,8 @@ function Routing() {
       <Route path="/appointment" element={<MakeAppointment />} />
       <Route path="/cart" element={<Cart />} />
       <Route path="/favourite" element={<Favourite />} />
+      <Route path="/shop/:vendorCode" element={<DetailedProductCard />} />
+      <Route path="/blog/:_id" element={<DetailedBlogCard />} />
     </Routes>
   )
 }

@@ -1,5 +1,6 @@
 import { useDispatch } from "react-redux"
 import { removeFavourite } from "../../store/favourite/action"
+import FavoriteIcon from "@mui/icons-material/Favorite"
 
 const FavouriteCard = ({
   name,
@@ -16,28 +17,14 @@ const FavouriteCard = ({
   }
 
   return (
-    <div className="cart-card">
-      <img
-        className="cart-card__img"
-        src={photos}
-        alt="#"
-        max-width="100%"
-        height="110"
-      ></img>
-      <div className="cart-card__text-container cart-text">
-        <span className="cart-text__title">{name}</span>
-        <p className="cart-text__description">
-          Lorem ipsum dolor sit amet, consect adipiscing elit dalut.
-        </p>
-        <p className="cart-text__color">Black</p>
-        <span className="cart-text__price">Price: {price}$</span>
-      </div>
-      <button
-        className="cart-card__btn"
+    <div className="favourite-card">
+      <img className="favourite-card__img" src={photos} alt={photos}></img>
+      <h6 className="favourite-card__name">{name}</h6>
+      <p className="favourite-card__price">{price} $</p>
+      <FavoriteIcon
+        className="favourite-card__icon"
         onClick={(event) => deleteFavouriteCard(event, myKeyButton)}
-      >
-        ❤️
-      </button>
+      />
     </div>
   )
 }

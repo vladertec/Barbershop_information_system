@@ -1,15 +1,17 @@
 .favourite-container {
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    padding-left: 2.5%;
-    padding-right: 2.5%;
-  
-    &__message {
-      margin-top: 15%;
-      text-align: center;
-      font-size: 3vw;
-      font-weight: bold;
-    }
+  margin-top: 3%;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  cursor: pointer;
+  align-items: center;
+  justify-items: center;
+  padding-left: 10%;
+  padding-right: 10%;
+
+  &__message {
+    margin-top: 15%;
+    text-align: center;
+    font-size: 3vw;
+    font-weight: bold;
   }
-  
+}

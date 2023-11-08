@@ -1,63 +1,53 @@
-.cart-card {
-  display: flex;
+.favourite-card {
   width: 100%;
-  align-items: center;
-  margin-top: 3%;
-  background-color: #df7400;
+  height: 100%;
+  text-align: center;
+  padding-top: 2%;
+  padding-bottom: 14%;
+  position: relative;
 
   &__img {
-    width: 15%;
+    border-radius: 5%;
+    max-width: 70%;
     height: auto;
   }
 
-  &__btn {
-    margin-left: 2%;
-    padding: 1% 1%;
-    width: 5%;
-    box-sizing: border-box;
-    outline: none;
-    border: 1px solid transparent;
-    line-height: 32px;
-    font-size: 1.5vw;
-    font-weight: 500;
-    color: #fff;
-    background-color: #65a3be;
-    user-select: none;
-    appearance: none;
-    touch-action: manipulation;
-  }
-
-  &__btn:hover {
-    border-color: transparent;
-    background-color: #4986a1;
-    color: #fff;
-  }
-}
-
-.cart-text {
-  display: flex;
-  align-items: center;
-  font-size: 1.5vw;
-  width: 75%;
-
-  &__title {
-    margin-left: 2%;
-    width: 16%;
+  &__name {
+    margin-top: 2%;
+    font-size: 1.2vw;
     font-weight: bold;
-  }
-
-  &__description {
-    margin-left: 2%;
-    width: 50%;
-  }
-
-  &__color {
-    width: 15%;
-    margin-left: 2%;
+    color: white;
+    font-family: "Arima Madurai", serif;
   }
 
   &__price {
-    width: 15%;
-    margin-left: 2%;
+    margin-top: 2%;
+    font-size: 1vw;
+    color: #b48e40;
+    font-weight: bold;
+    font-family: "Arima Madurai", serif;
+  }
+
+  &:hover {
+    opacity: 80%;
+  }
+
+  &__icon {
+    position: absolute;
+    top: 4%;
+    right: 18%;
+    color: red;
+    cursor: pointer;
+  }
+
+  @include phone {
+    &__name {
+      margin-top: 3%;
+      font-size: 2vw;
+    }
+
+    &__price {
+      font-size: 2.5vw;
+    }
   }
 }

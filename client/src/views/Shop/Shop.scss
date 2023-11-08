@@ -1,4 +1,10 @@
 .shop-container {
+  &__loading-spin {
+    @include flex-container;
+    margin-top: 20%;
+    margin-bottom: 25%;
+  }
+
   &__cards {
     margin-top: 3%;
     display: grid;

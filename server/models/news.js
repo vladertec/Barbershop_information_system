@@ -4,7 +4,8 @@ const newsSchema = new mongoose.Schema(
   {
     name: String,
     date: String,
-    description: String,
+    shortDescription: String,
+    detailedDescription: String,
     photos: Array,
   },
   { versionKey: false }

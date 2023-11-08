@@ -1,0 +1,81 @@
+.detailed-blog {
+  @include container-mix;
+  color: white;
+  font-family: "Arima Madurai", serif;
+  margin-top: 1%;
+  @include flex-container;
+  flex-direction: column;
+
+  &__date {
+    margin-left: 80%;
+    font-size: 1.8vw;
+  }
+
+  &__img-container {
+    margin-top: 2%;
+    @include grid-container;
+    grid-template-areas: "a b c";
+    column-gap: 1%;
+    row-gap: 4%;
+  }
+
+  &__img {
+    border: 3px solid #b48e40;
+    max-width: 95%;
+    height: auto;
+    &:hover {
+      opacity: 50%;
+    }
+  }
+
+  &__img:last-child {
+    display: none;
+  }
+
+  &__description {
+    margin-top: 3%;
+    text-align: justify;
+    font-size: 1.8vw;
+  }
+
+  &__btn {
+    margin-top: 6%;
+    color: white;
+    background-color: #b48e40;
+    padding: 2% 3%;
+    border-radius: 5%;
+    cursor: pointer;
+    font-size: 1.65vw;
+    font-weight: bold;
+
+    &:hover {
+      font-size: 1.6vw;
+      background-color: #7b5d20;
+    }
+  }
+
+  @include phone {
+    &__date {
+      margin-top: 2%;
+    }
+    &__img-container {
+      margin-top: 4%;
+      grid-template-areas:
+        "a c"
+        "b b";
+      column-gap: 1%;
+    }
+
+    &__img {
+      max-width: 95%;
+    }
+
+    &__img:last-child {
+      display: inline-block;
+    }
+
+    &__description {
+      margin-top: 8%;
+    }
+  }
+}
