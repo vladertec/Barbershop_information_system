@@ -27,7 +27,7 @@ const CartCard = ({
       <div className="cart-card__text-container cart-text">
         <span className="cart-text__title">{name}</span>
         <p className="cart-text__description">{description}</p>
-        <p className="cart-text__color">Color</p>
+        <p className="cart-text__color">Amount: 1</p>
         <span className="cart-text__price">Price: {price}$</span>
       </div>
       <button

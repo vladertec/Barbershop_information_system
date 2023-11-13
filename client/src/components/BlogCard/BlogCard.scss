@@ -3,15 +3,17 @@
   width: 100%;
   display: flex;
   color: #fff;
+  border-radius: 10px;
 
   &__photo-container {
     width: 23%;
-    margin: 0.5% 0.5% 0% 0.5%;
+    margin: 0.5% 0.5% 0.2% 0.5%;
   }
 
   &__img {
     max-width: 100%;
     height: auto;
+    border-radius: 5px;
   }
 
   &__text-container {

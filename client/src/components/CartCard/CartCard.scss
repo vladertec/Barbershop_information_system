@@ -1,66 +1,71 @@
 .cart-card {
-    display: flex;
-    width: 100%;
-    align-items: center;
-    margin-top: 3%;
-    background-color: #df7400;
-    
-  
-    &__img {
-      width: 15%;
-      height: auto;
-    }
-  
-    &__btn {
-      margin-left: 2%;
-      padding: 1% 1%;
-      width: 5%;
-      box-sizing: border-box;
-      outline: none;
-      border: 1px solid transparent;
-      line-height: 32px;
-      font-size: 1.5vw;
-      font-weight: 500;
-      color: #fff;
-      background-color: #65a3be;
-      user-select: none;
-      appearance: none;
-      touch-action: manipulation;
-      cursor: pointer;
-    }
-  
-    &__btn:hover {
-      border-color: transparent;
-      background-color: #4986a1;
-      color: #fff;
-    }
+  display: flex;
+  width: 100%;
+  align-items: center;
+  margin-top: 3%;
+  color: white;
+  border: 1px solid #b48e40;
+  border-radius: 10px;
+
+  &__img {
+    width: 15%;
+    height: auto;
+    border-top-left-radius: 9px;
+    border-bottom-left-radius: 9px;
   }
-  
+
   .cart-text {
     display: flex;
     align-items: center;
     font-size: 1.5vw;
     width: 75%;
-  
+
     &__title {
-      margin-left: 2%;
-      width: 16%;
+      @include flex-container;
+      width: 20%;
       font-weight: bold;
     }
-  
+
     &__description {
-      margin-left: 2%;
       width: 50%;
+      @include flex-container;
+      text-align: justify;
     }
-  
+
     &__color {
-      width: 15%;
-      margin-left: 2%;
+      @include flex-container;
+      width: 13%;
+      margin-left: 4%;
     }
-  
+
     &__price {
-      width: 15%;
-      margin-left: 2%;
+      width: 13%;
+      @include flex-container;
     }
   }
-  
+
+  &__btn {
+    margin-left: 2%;
+    padding: 1% 1%;
+    width: 5%;
+    box-sizing: border-box;
+    outline: none;
+    border: 1px solid transparent;
+    line-height: 32px;
+    font-size: 1.5vw;
+    font-weight: 500;
+    color: #fff;
+    background-color: #b48e40;
+    cursor: pointer;
+  }
+
+  &__btn:hover {
+    border-color: transparent;
+    background-color: #7b5d20;
+    color: #fff;
+  }
+
+  &:hover {
+    opacity: 75%;
+  }
+}

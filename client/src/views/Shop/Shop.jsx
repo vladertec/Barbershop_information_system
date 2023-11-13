@@ -38,7 +38,7 @@ const Shop = () => {
                 </Link>
               )
             })}
-          </div>
+            </div>
           <div className="shop-container__pagination">
             <ItemPagination />
           </div>

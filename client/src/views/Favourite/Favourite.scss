@@ -1,17 +1,37 @@
 .favourite-container {
-  margin-top: 3%;
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  cursor: pointer;
-  align-items: center;
-  justify-items: center;
-  padding-left: 10%;
-  padding-right: 10%;
+  &__favourite-block {
+    margin-top: 3%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    cursor: pointer;
+    align-items: center;
+    justify-items: center;
+    padding-left: 10%;
+    padding-right: 10%;
+  }
 
   &__message {
+    color: white;
     margin-top: 15%;
+    margin-bottom: 22%;
     text-align: center;
     font-size: 3vw;
     font-weight: bold;
+  }
+
+  @include phone{
+    &__favourite-block {
+      margin-top: 6%;
+      grid-template-columns: 1fr 1fr;
+    }
+  
+    &__message {
+      color: white;
+      margin-top: 75%;
+      margin-bottom: 90%;
+      text-align: center;
+      font-size: 5.5vw;
+      font-weight: bold;
+    }
   }
 }

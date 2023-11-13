@@ -4,12 +4,12 @@ import HeaderMenuList from "../HeaderMenuList/HeaderMenuList"
 import MenuIcon from "@mui/icons-material/Menu"
 import { useState } from "react"
 import HeaderMenuListPhoneVersion from "../HeaderMenuListPhoneVersion/HeaderMenuListPhoneVersion"
-import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
+import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder"
 import { useSelector } from "react-redux"
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false)
-  const cartList = useSelector((state) => state.cart.cartList);
+  const cartList = useSelector((state) => state.cart.cartList)
 
   return (
     <div className="header">
@@ -30,7 +30,7 @@ const Header = () => {
       <div className="header__user-container active-container">
         <Link to="/appointment" className="active-container__btn-link">
           <button className="active-container__book-btn" type="button">
-            Book a haircut
+            Reserve
           </button>
         </Link>
 
@@ -46,12 +46,17 @@ const Header = () => {
 
           <Link to="/cart" className="active-container__shopping-link">
             <ShoppingBasketIcon className="active-container__shopping-icon" />
-            <p className="active-container__shopping-number">{cartList.length}</p>
+            <p className="active-container__shopping-number">
+              {cartList.length}
+            </p>
           </Link>
-          <Link to="/favourite" className="active-container__shopping-link">
+
+          <Link
+            to="/favourite"
+            className="active-container__shopping-link"
+          >
             <FavoriteBorderIcon className="active-container__shopping-icon" />
           </Link>
-         
         </div>
       </div>
     </div>

@@ -21,33 +21,31 @@ const Cart = () => {
 
   return (
     <div className="cart-list">
-      <div>
-        {cartList.map((card) => {
-          return (
-            <CartCard
-              key={card._id}
-              myKeyButton={card.vendorCode}
-              name={card.name}
-              price={card.price}
-              photos={card.imagePath}
-              description={card.description}
-            />
-          )
-        })}
+      {cartList.map((card) => {
+        return (
+          <CartCard
+            key={card._id}
+            myKeyButton={card.vendorCode}
+            name={card.name}
+            price={card.price}
+            photos={card.photos[0]}
+            description={card.shortDescription}
+          />
+        )
+      })}
 
-        {cartList.length > 0 ? (
-          <>
-            <p className="cart-list__total-sum">
-              Total: {amountSubstractingCart()}$
-            </p>
-            <button className="cart-list__buy-btn" onClick={clickShowBuyModal}>
-              Buy products
-            </button>
-          </>
-        ) : (
-          <p className="cart-list__message">No items in cart</p>
-        )}
-      </div>
+      {cartList.length > 0 ? (
+        <>
+          <p className="cart-list__total-sum">
+            Total: {amountSubstractingCart()}$
+          </p>
+          <button className="cart-list__buy-btn" onClick={clickShowBuyModal}>
+            Buy products
+          </button>
+        </>
+      ) : (
+        <p className="cart-list__message">No items in cart</p>
+      )}
     </div>
   )
 }
