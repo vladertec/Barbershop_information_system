@@ -1,10 +1,11 @@
-import { useDispatch, useSelector } from "react-redux"
+import { useSelector } from "react-redux"
 import CartCard from "../../components/CartCard/CartCard"
-import { showBuyModal } from "../../store/cart/action"
+import { useEffect, useState } from "react"
+import { useNavigate } from "react-router"
 
 const Cart = () => {
-  const dispatch = useDispatch()
   const cartList = useSelector((state) => state.cart.cartList)
+  const navigate = useNavigate()
 
   const amountSubstractingCart = () => {
     let totalSum = 0
@@ -15,12 +16,26 @@ const Cart = () => {
     return totalSum
   }
 
-  const clickShowBuyModal = () => {
-    dispatch(showBuyModal(true))
-  }
+  useEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: "smooth" })
+  }, [])
+
+  // const buttonBuyClick = () => {
+  //   setModalIsOpen(true)
+  // }
+
+  // const updateModalIsOpen = (boolean) => {
+  //   setModalIsOpen(boolean)
+  // }
 
   return (
     <div className="cart-list">
+      {/* {modalIsOpen && (
+        <div className="detailed-product__modal-container">
+          <BuyModal updateModalIsOpen={updateModalIsOpen} />
+        </div>
+      )} */}
+
       {cartList.map((card) => {
         return (
           <CartCard
@@ -39,7 +54,12 @@ const Cart = () => {
           <p className="cart-list__total-sum">
             Total: {amountSubstractingCart()}$
           </p>
-          <button className="cart-list__buy-btn" onClick={clickShowBuyModal}>
+          <button
+            className="cart-list__buy-btn"
+            onClick={() => {
+              navigate("/cart/purchase")
+            }}
+          >
             Buy products
           </button>
         </>

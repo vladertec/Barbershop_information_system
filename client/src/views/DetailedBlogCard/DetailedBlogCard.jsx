@@ -5,8 +5,8 @@ const DetailedBlogCard = () => {
   const { _id } = useParams()
   const navigate = useNavigate()
   const newsList = useSelector((state) => state.news.newsList)
-    let detailedNews = newsList.find((card) => card._id == _id)
-    
+  let detailedNews = newsList.find((card) => card._id == _id)
+
   if (!detailedNews) {
     return <div>Блог не найден</div>
   }
@@ -14,6 +14,8 @@ const DetailedBlogCard = () => {
   const returnToBlogPage = () => {
     navigate("/blog")
   }
+
+  window.scrollTo({ top: 0, left: 0, behavior: "smooth" })
 
   return (
     <div className="detailed-blog">

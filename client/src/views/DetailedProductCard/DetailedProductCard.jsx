@@ -38,6 +38,8 @@ const DetailedProductCard = () => {
     setModalIsOpen(boolean)
   }
 
+  window.scrollTo({ top: 0, left: 0, behavior: "smooth" })
+
   return (
     <div className="detailed-product">
       <div className="detailed-product__container">

@@ -1,5 +1,8 @@
 import express from "express"
 import mongoose from "mongoose"
+import path from "path"
+import { fileURLToPath } from "url"
+import { dirname } from "path"
 import NewsController from "./controllers/news.js"
 import ProductController from "./controllers/product.js"
 import VisitController from "./controllers/visit.js"
@@ -9,6 +12,10 @@ import BarberController from "./controllers/barber.js"
 
 const app = express()
 app.use(express.json())
+const __filename = fileURLToPath(import.meta.url)
+const __dirname = dirname(__filename)
+
+app.use(express.static(path.join(__dirname, "public")))
 
 //Barber
 app.post("/api/barber", BarberController.add)
@@ -51,6 +58,7 @@ app.listen(4000, () => {
 })
 
 mongoose
+  .set("strictQuery", true)
   .connect(
     "mongodb+srv://vladertec:vladertec@cluster0.mfyprte.mongodb.net/?retryWrites=true&w=majority"
   )

@@ -14,7 +14,7 @@ const Login = () => {
     result.forEach((barber) => {
       if (barber.login === login.login && barber.password === login.password) {
         dispatch(loadedBarbers(barber))
-        navigate("/enter")
+        navigate("/login/barber")
       }
     })
   }

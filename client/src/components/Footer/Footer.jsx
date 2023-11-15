@@ -5,7 +5,7 @@ const Footer = () => {
         <div className="footer-container__logo-information footer-logo">
           <img
             className="footer-logo__img"
-            src="./img/Logo.svg"
+            src="/img/Logo.svg"
             alt="footer-logo"
           ></img>
           <p className="footer-logo__text">
@@ -28,7 +28,7 @@ const Footer = () => {
             <div className="address__block contact-address">
               <img
                 className="contact-address__icon"
-                src="./img/footer-icon/location.svg"
+                src="/img/footer-icon/location.svg"
                 alt="footer-location"
               ></img>
               <p className="contact-address__text">Kyiv, Grigorenko 22/20</p>
@@ -36,15 +36,15 @@ const Footer = () => {
             <div className="address__block contact-address">
               <img
                 className="contact-address__icon"
-                src="./img/footer-icon/call.svg"
+                src="/img/footer-icon/call.svg"
                 alt="footer-call"
               ></img>
-              <p className="contact-address__text">+38(098)658-56-08</p>
+              <p className="contact-address__text">+38(098)118-15-05</p>
             </div>
             <div className="address__block contact-address">
               <img
                 className="contact-address__icon"
-                src="./img/footer-icon/email.svg"
+                src="/img/footer-icon/email.svg"
                 alt="footer-email"
               ></img>
               <p className="contact-address__text">sarnavsk2001@gmail.com</p>
@@ -55,21 +55,30 @@ const Footer = () => {
         <div className="footer-container__follow network">
           <h4 className="network__title">Follow Us</h4>
           <div className="network__block network-icons">
-            <img
-              className="network-icons__img"
-              src="./img/footer-icon/Instagram.svg"
-              alt=""
-            />
-            <img
-              className="network-icons__img"
-              src="./img/footer-icon/Linkedin.svg"
-              alt=""
-            />
-            <img
-              className="network-icons__img"
-              src="./img/footer-icon/Twitter.svg"
-              alt=""
-            />
+            <a href="https://www.instagram.com/vladertec/">
+              <img
+                className="network-icons__img"
+                src="/img/footer-icon/Instagram.svg"
+                alt=""
+              />
+            </a>
+            <a
+              className="network-icons__link"
+              href="https://www.linkedin.com/in/vladertec/"
+            >
+              <img
+                className="network-icons__img"
+                src="/img/footer-icon/Linkedin.svg"
+                alt=""
+              />
+            </a>
+            <a href="https://t.me/vladertec">
+              <img
+                className="network-icons__img"
+                src="/img/footer-icon/Twitter.svg"
+                alt=""
+              />
+            </a>
           </div>
         </div>
       </div>
@@ -77,7 +86,13 @@ const Footer = () => {
       <div className="footer-wrapper__copyright author">
         <p className="author__text">
           Copyright © 2023 Kpi master`s thesis website by
-          <span className="author__name"> Vladertec</span>
+          <a
+            className="author__name"
+            href="https://www.linkedin.com/in/vladertec/"
+          >
+            {" "}
+            Vladertec
+          </a>
         </p>
       </div>
     </section>

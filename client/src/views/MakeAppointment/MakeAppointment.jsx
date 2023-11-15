@@ -1,9 +1,11 @@
 import React, { useState } from "react"
 import { Formik } from "formik"
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 import { sendVisit } from "../../api/visit"
 
 const MakeAppointment = () => {
+  const navigate = useNavigate()
+
   const [appointmentObject, setAppointmentObject] = useState({
     name: "",
     surname: "",
@@ -16,13 +18,12 @@ const MakeAppointment = () => {
 
   const sendContactInformation = (e) => {
     sendVisit(appointmentObject)
+    navigate("/appointment/success")
   }
 
   return (
     <div className="appointment">
-      <p className="appointment__title">
-        Make a visit to our barbershop
-      </p>
+      <p className="appointment__title">Make a visit to our barbershop</p>
       <Formik
         initialValues={{
           name: "",
@@ -60,10 +61,7 @@ const MakeAppointment = () => {
           handleSubmit,
           isSubmitting,
         }) => (
-          <form
-            className="appointment__form book-form"
-            onSubmit={handleSubmit}
-          >
+          <form className="appointment__form book-form" onSubmit={handleSubmit}>
             <input
               className="book-form__input"
               placeholder="Name"

@@ -97,10 +97,12 @@
             .network-icons {
               display: flex;
               margin-top: 1%;
+
               &__img {
                 padding-right: 5%;
                 width: 33%;
                 height: auto;
+                max-height: 90%;
                 cursor: pointer;
               }
             }

@@ -1,6 +1,7 @@
 .detailed-product {
   color: white;
-  margin-top: 2%;
+  margin: 2% 0%;
+  
   @include container-mix;
   position: relative;
 
@@ -12,8 +13,10 @@
 
   &__modal-container {
     position: absolute;
+    top: 30%;
+    right: 25%
   }
-
+  
   &__img-container {
     width: 45%;
     @include grid-container;

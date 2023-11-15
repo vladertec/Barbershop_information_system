@@ -25,8 +25,6 @@ const Contact = () => {
       </section>
 
       <section className="contact-container__help contact-help">
-        
-        
         <div className="contact-help__container contact-us">
           <p className="contact-us__text">Contact Us</p>
           <h3 className="contact-us__title">
@@ -72,17 +70,10 @@ const Contact = () => {
             </div>
             <div className="contact-us__text-block">
               <p className="contact-us__title-emergency">Office Address</p>
-              <p className="contact-us__info">
-                66W3+Q4G Buxton
-              </p>
+              <p className="contact-us__info">66W3+Q4G Buxton</p>
             </div>
           </div>
         </div>
-
-
-
-    
-        
 
         <div className="contact-help__send-message message">
           <h3 className="message__title">Send Message</h3>

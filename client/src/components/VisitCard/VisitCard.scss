@@ -1,0 +1,19 @@
+.visit-card {
+  background-color: black;
+  color: white;
+  margin-top: 6%;
+  width: 80%;
+  border: 1px solid #b48e40;
+
+  &__name {
+    margin-top: 2%;
+  }
+
+  &__date {
+    margin-top: 2%;
+  }
+
+  &__service {
+    margin-top: 2%;
+  }
+}

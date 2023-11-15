@@ -1,10 +1,14 @@
+import { useEffect } from "react"
 import EmailSubscribe from "../../components/EmailSubscribe/EmailSubscribe"
 import ServiceCard from "../../components/ServiceCard/ServiceCard"
 import StatisticBox from "../../components/StatisticBox/StatisticBox"
-// import SubscribeEmail from "../../components/SubscribeEmail/SubscribeEmail"
 import { Link } from "react-router-dom"
 
 function Home() {
+  useEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: "smooth" })
+  }, [])
+
   return (
     <div className="home-wrapper">
       <section className="home-wrapper__information info">
@@ -113,7 +117,6 @@ function Home() {
         </div>
       </section>
 
-
       <section className="home-wrapper__gallery projects">
         <p className="projects__title">Our Gallery</p>
         <p className="projects__description">We Have Done Lots Of Projects</p>
@@ -151,8 +154,8 @@ function Home() {
             SEE MORE »
           </button>
         </Link>
-      </section> 
-      <EmailSubscribe/> 
+      </section>
+      <EmailSubscribe />
     </div>
   )
 }
