@@ -1,17 +1,26 @@
-import express from "express"
-import mongoose from "mongoose"
-import path from "path"
-import { fileURLToPath } from "url"
-import { dirname } from "path"
 import NewsController from "./controllers/news.js"
 import ProductController from "./controllers/product.js"
 import VisitController from "./controllers/visit.js"
 import ContactController from "./controllers/contact.js"
 import EmailController from "./controllers/email.js"
 import BarberController from "./controllers/barber.js"
+import AuthenticController from "./controllers/authentic.js"
+import path from "path"
+import { fileURLToPath } from "url"
+import { dirname } from "path"
+import cors from "cors"
+import dotenv from "dotenv"
+import express from "express"
+import mongoose from "mongoose"
+import { check } from "express-validator"
+import authenticMiddleware from "./middleware/authenticMiddleware.js"
+import roleMiddleware from "./middleware/roleMiddleware.js"
 
+dotenv.config()
 const app = express()
 app.use(express.json())
+app.use(cors())
+
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = dirname(__filename)
 
@@ -52,16 +61,37 @@ app.post("/api/email", EmailController.add)
 app.get("/api/email", EmailController.getAll)
 app.delete("/api/email/:emailId", EmailController.deleteOne)
 
+//Login
+app.post(
+  "/api/registration",
+  [
+    check("username", "Name can`t be empty").notEmpty(),
+    // check("username", "Name can`t be short").isLength({ min: 4, max: 10 }),
+  ],
+  AuthenticController.registration
+)
+app.post("/api/login", AuthenticController.login)
+app.post("/api/logout", AuthenticController.logout)
+app.get(
+  "/api/users",
+  authenticMiddleware,
+  roleMiddleware(["BARBER"]),
+  AuthenticController.getUsers
+)
+
 //About connection
-app.listen(4000, () => {
-  console.log("Server is running on port 4000")
+const PORT = process.env.PORT || 5000
+
+app.listen(PORT, () => {
+  console.log(`Server is running on port ${PORT}`)
 })
 
 mongoose
-  .set("strictQuery", true)
-  .connect(
-    "mongodb+srv://vladertec:vladertec@cluster0.mfyprte.mongodb.net/?retryWrites=true&w=majority"
-  )
+  .set("strictQuery", false)
+  .connect(process.env.MONGO_URI, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  })
   .then(() => {
     console.log("DB connection success")
   })

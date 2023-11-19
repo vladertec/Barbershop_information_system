@@ -15,6 +15,7 @@ import DetailedBlogCard from "../../views/DetailedBlogCard/DetailedBlogCard"
 import PurchaseDetails from "../../views/PurchaseDetails/PurchaseDetails"
 import Success from "../../views/Success/Success"
 import BarberPage from "../../views/BarberPage/BarberPage"
+import Registration from "../../views/Registration/Registration"
 
 function Routing() {
   return (
@@ -33,9 +34,11 @@ function Routing() {
       <Route path="/shop/:vendorCode" element={<DetailedProductCard />} />
       <Route path="/blog/:_id" element={<DetailedBlogCard />} />
       <Route path="/cart/purchase" element={<PurchaseDetails />} />
+      <Route path="/login/barber" element={<BarberPage />} />
+      <Route path="/registration" element={<Registration />} />
+      <Route path="/registration/success" element={<Success />} />
       <Route path="/cart/purchase/success" element={<Success />} />
       <Route path="/appointment/success" element={<Success />} />
-      <Route path="/login/barber" element={<BarberPage />} />
     </Routes>
   )
 }

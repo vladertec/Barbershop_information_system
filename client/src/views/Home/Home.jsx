@@ -18,9 +18,9 @@ function Home() {
           Phasellus vitae purus ac urna consequat facilisis a vel leo. Maecenas
           hendrerit lacinia mollis. Fusce in leo lectus.
         </p>
-        <Link to="/blog">
-          <button type="button" to="/blog" className="info__btn">
-            Read More »
+        <Link to="/appointment">
+          <button type="button" className="info__btn">
+            Book time »
           </button>
         </Link>
       </section>

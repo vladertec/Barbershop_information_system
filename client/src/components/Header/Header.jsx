@@ -13,7 +13,7 @@ const Header = () => {
 
   return (
     <div className="header">
-      <Link to="/login" className="header__logo-link">
+      <Link to="/" className="header__logo-link">
         <img src="/img/Logo.svg" className="header__logo-img" alt="logo"></img>
       </Link>
 
@@ -28,9 +28,9 @@ const Header = () => {
       )}
 
       <div className="header__user-container active-container">
-        <Link to="/appointment" className="active-container__btn-link">
+        <Link to="/login" className="active-container__btn-link">
           <button className="active-container__book-btn" type="button">
-            Reserve
+            Login
           </button>
         </Link>
 
@@ -51,10 +51,7 @@ const Header = () => {
             </p>
           </Link>
 
-          <Link
-            to="/favourite"
-            className="active-container__shopping-link"
-          >
+          <Link to="/favourite" className="active-container__shopping-link">
             <FavoriteBorderIcon className="active-container__shopping-icon" />
           </Link>
         </div>
