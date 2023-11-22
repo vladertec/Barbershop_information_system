@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from "react-redux"
 import { addFavorite } from "../../store/favourite/action"
 
-const ProductCard = ({ name, photos, price, myKeyButton }) => {
+const ProductCard = ({ name, photos, price, myKeyButton, updateModalIsOpen}) => {
   const dispatch = useDispatch()
   const productsList = useSelector((state) => state.products.productsList)
   const favouriteList = useSelector((state) => state.favourite.favouriteList)
@@ -18,6 +18,7 @@ const ProductCard = ({ name, photos, price, myKeyButton }) => {
       )
       dispatch(addFavorite(favouriteCard[0]))
     }
+    updateModalIsOpen(true)
   }
 
   return (

@@ -5,6 +5,8 @@ import ContactController from "./controllers/contact.js"
 import EmailController from "./controllers/email.js"
 import BarberController from "./controllers/barber.js"
 import AuthenticController from "./controllers/authentic.js"
+import UserController from "./controllers/user.js"
+
 import path from "path"
 import { fileURLToPath } from "url"
 import { dirname } from "path"
@@ -78,6 +80,9 @@ app.get(
   roleMiddleware(["BARBER"]),
   AuthenticController.getUsers
 )
+
+app.get("/api/user", authenticMiddleware, UserController.getUser)
+app.patch("/api/user", authenticMiddleware, UserController.updateUser)
 
 //About connection
 const PORT = process.env.PORT || 5000

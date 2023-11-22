@@ -20,3 +20,9 @@
     @content;
   }
 }
+
+@mixin stub {
+  @media screen and (max-width: 280px) {
+    @content;
+  }
+}

@@ -25,10 +25,10 @@ const CartCard = ({
         height="110"
       ></img>
       <div className="cart-card__text-container cart-text">
-        <span className="cart-text__title">{name}</span>
+        <p className="cart-text__title">{name}</p>
         <p className="cart-text__description">{description}</p>
         <p className="cart-text__color">Amount: 1</p>
-        <span className="cart-text__price">Price: {price}$</span>
+        <p className="cart-text__price">Price: {price}$</p>
       </div>
       <button
         className="cart-card__btn"

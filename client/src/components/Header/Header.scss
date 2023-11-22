@@ -53,7 +53,6 @@
     &__icons-container {
       @include flex-container;
       max-width: 100%;
-      margin-left: 6%;
       justify-content: space-between;
     }
 
@@ -70,7 +69,7 @@
     &__shopping-link {
       cursor: pointer;
       @include flex-container;
-      margin-right: 25%;
+      margin-right: 15%;
 
       &:hover {
         color: #b48e40;

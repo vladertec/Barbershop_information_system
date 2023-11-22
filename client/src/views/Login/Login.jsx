@@ -1,26 +1,52 @@
 import { useState } from "react"
 import { Link, useNavigate } from "react-router-dom"
 import { loginUser } from "../../api/userStatus"
+import CustomErrorMessage from "../../components/ErrorMessageCustom/ErrorMessageCustom"
+import { getUser } from "../../api/user"
+import { useDispatch } from "react-redux"
+import { updateCart } from "../../store/cart/action"
+import { updateFavourite } from "../../store/favourite/action"
 
 const Login = () => {
   const navigate = useNavigate()
   const [login, setLogin] = useState({ username: "", password: "" })
+  const [error, setError] = useState({ statusError: false, message: "" })
+  const dispatch = useDispatch()
 
   const loginClick = async (event) => {
     event.preventDefault()
-    const result = await loginUser(login)
-    if (result.status === 200) {
-      localStorage.setItem("accessToken", result.data.token)
+    setError({
+      ...error,
+      statusError: false,
+      message: "",
+    })
+
+    const token = await loginUser(login)
+    if (token.status === 200) {
+      localStorage.setItem("accessToken", token.data.token)
+      const result = await getUser(localStorage.getItem("accessToken"))
+      dispatch(updateCart(result.cartList))
+      dispatch(updateFavourite(result.favouriteList))
       navigate("/")
+    } else {
+      const errorMessage = token.response.data.message
+      setError({
+        ...error,
+        statusError: true,
+        message: errorMessage,
+      })
     }
-    console.log(result)
   }
 
   return (
     <div className="login">
       <p className="login__text">Do you have an account? Please, log in!</p>
       <div className="login__login-container">
-        <img src="./img/Logo.svg" alt="Business view - Reports" />
+        <img
+          className="login__img"
+          src="./img/Logo.svg"
+          alt="Business view - Reports"
+        />
         <div>
           <div className="login__input-group">
             <label className="login__input-name" htmlFor="email">
@@ -60,6 +86,11 @@ const Login = () => {
             Log In
           </button>
         </div>
+        {error && (
+          <div className="login__error-message">
+            <CustomErrorMessage name={error.message} />
+          </div>
+        )}
         <Link to="/registration" className="login__registration-link">
           <span className="login__registration-text">
             If you are not registered, please do it.

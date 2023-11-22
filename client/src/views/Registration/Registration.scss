@@ -4,7 +4,7 @@
   margin-top: 5%;
 
   &__text {
-    font-size: 2.4vw;
+    font-size: 2.5vw;
     color: white;
     font-weight: bold;
     font-family: "Arima Madurai", serif;
@@ -20,6 +20,12 @@
     width: 90%;
   }
 
+  &__img {
+    width: 40%;
+    height: 40%;
+    object-fit: cover;
+  }
+
   &__input-group {
     margin-top: 5%;
     &:nth-last-child(-n + 2) {
@@ -28,7 +34,7 @@
   }
 
   &__input-name {
-    font-family: "Roboto", sans-serif;
+    font-family: "Arima Madurai", serif;
     max-width: 420px;
     text-align: left;
     width: 80%;
@@ -39,16 +45,15 @@
   }
 
   &__input {
-    font-family: "Roboto", sans-serif;
+    font-family: "Arima Madurai", serif;
     max-width: 420px;
+    font-size: 1.5vw;
     text-align: left;
     width: 80%;
     background: #f2f2f5;
     border-radius: 4px;
     color: #676767;
-    font-size: 16px;
     height: 40px;
-    outline: 0;
     padding: 0 15px;
     transition: all 0.3s;
 
@@ -67,20 +72,47 @@
     border: none;
     color: #fff;
     cursor: pointer;
-    font-family: "Open Sans", sans-serif;
+    font-family: "Arima Madurai", serif;
     font-size: 18px;
     font-weight: bold;
     letter-spacing: 1px;
     max-width: 420px;
     outline: 0;
     padding: 10px 0;
-    transition: background 0.3s;
     width: 80%;
     background: #b48e40;
     margin-bottom: 5%;
 
     &:hover {
       background-color: #7b5d20;
+    }
+  }
+
+  &__error-message {
+    margin-top: 4%;
+  }
+
+  @include phone {
+    margin-top: 15%;
+    &__text {
+      font-size: 4vw;
+    }
+
+    &__registration-container {
+      margin-top: 15%;
+      width: 80%;
+    }
+
+    &__input-name {
+      font-size: 4.2vw;
+    }
+
+    &__form {
+      margin-top: 12%;
+    }
+
+    &__input-group {
+      margin-top: 5%;
     }
   }
 }

@@ -11,8 +11,6 @@ export const getCartListFromLS = () => {
 
 const initialState = {
   cartList: getCartListFromLS(),
-  modalIsOpen: false,
-  buyModalIsOpen: false,
 }
 
 const reducer = (state = initialState, action) => {
@@ -28,14 +26,9 @@ const reducer = (state = initialState, action) => {
     case "REMOVE_PRODUCT_FROM_CART": {
       return {
         ...state,
-        cartList: state.cartList.filter((card) => card.vendorCode !== action.payload),
-      }
-    }
-
-    case "HIDE_MODAL": {
-      return {
-        ...state,
-        modalIsOpen: action.payload,
+        cartList: state.cartList.filter(
+          (card) => card.vendorCode !== action.payload
+        ),
       }
     }
 
@@ -45,18 +38,11 @@ const reducer = (state = initialState, action) => {
         cartList: action.payload,
       }
     }
-
-    case "HIDE_BUY_MODAL": {
+      
+    case "UPDATE_PRODUCT_IN_CART": {
       return {
         ...state,
-        buyModalIsOpen: action.payload,
-      }
-    }
-
-    case "SHOW_BUY_MODAL": {
-      return {
-        ...state,
-        buyModalIsOpen: action.payload,
+        cartList: action.payload,
       }
     }
 

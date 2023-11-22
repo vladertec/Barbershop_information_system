@@ -1,4 +1,13 @@
 .shop-container {
+  flex: 1;
+  position: relative;
+
+  &__modal-container {
+    position: absolute;
+    top: 30%;
+    right: 24.4%
+  }
+
   &__loading-spin {
     @include flex-container;
     margin-top: 20%;

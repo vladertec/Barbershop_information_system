@@ -6,17 +6,21 @@ import Routing from "./components/Routing/Routing"
 import Footer from "./components/Footer/Footer"
 
 function App() {
-  
   useEffect(() => {
     window.scrollTo({ top: 0, left: 0, behavior: "smooth" })
   }, [])
 
   return (
     <div className="App">
-      <Header />
-      <Routing />
-      <Footer />
-      <ScrollToTop smooth  style={{ backgroundColor: '#b48e40'}} />
+      <div className="App__header">
+        <Header />
+      </div>
+      <div className="App__main">
+        <Routing />
+      </div>
+      <div className="App__footer">
+        <Footer />
+      </div>
     </div>
   )
 }

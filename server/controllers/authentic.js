@@ -31,16 +31,18 @@ const registration = async (req, res) => {
     const { username, password } = req.body
     const candidate = await User.findOne({ username })
     if (candidate) {
-      res
+      return res
         .status(400)
         .json({ message: "User with the same name already exists" })
     }
     const hashPassword = bcrypt.hashSync(password, 7)
-    const userRole = await Role.findOne({ value: "BARBER" })
+    const userRole = await Role.findOne({ value: "USER" })
     const user = new User({
       username,
       password: hashPassword,
       roles: [userRole.value],
+
+      
     })
     user.save()
     return res.json({ message: "User saved successfully" })
@@ -55,20 +57,21 @@ const login = async (req, res) => {
     const { username, password } = req.body
     const candidate = await User.findOne({ username })
     if (!candidate) {
-      res
-        .status(400)
-        .json({ message: `User with username ${username} does not exist` })
-    }
-    const validPassword = bcrypt.compareSync(password, candidate.password)
-    if (!validPassword) {
-      res.status(400).json({ message: `Not correct password` })
-    }
+      return res.status(400).json({
+        message: `User ${username} does not exist`,
+      })
+    } else {
+      const validPassword = bcrypt.compareSync(password, candidate.password)
+      if (!validPassword) {
+        return res.status(400).json({ message: `Incorrect password` })
+      }
 
-    const token = await generateAccessToken(candidate._id, candidate.roles)
-    return res.json({ token })
+      const token = await generateAccessToken(candidate._id, candidate.roles)
+      return res.json({ token })
+    }
   } catch (e) {
     console.log(e)
-    res.status(400).json({ message: "Login has error!" })
+    res.status(400).json({ message: "Registration has error!" })
   }
 }
 

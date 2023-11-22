@@ -19,23 +19,9 @@ export const removeAllCart = (value) => {
   }
 }
 
-export const hideModalCart = (value) => {
+export const updateCart = (value) => {
   return {
-    type: "HIDE_MODAL",
-    payload: value,
-  }
-}
-
-export const hideBuyModal = (value) => {
-  return {
-    type: "HIDE_BUY_MODAL",
-    payload: value,
-  }
-}
-
-export const showBuyModal = (value) => {
-  return {
-    type: "SHOW_BUY_MODAL",
+    type: "UPDATE_PRODUCT_IN_CART",
     payload: value,
   }
 }

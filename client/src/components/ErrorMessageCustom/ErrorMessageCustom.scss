@@ -1,0 +1,13 @@
+.custom-error {
+  @include flex-container;
+  &__text {
+    color: red;
+    font-family: "Arima Madurai", serif;
+  }
+
+  @include phone {
+    &__text {
+      font-size: 3.5vw;
+    }
+  }
+}

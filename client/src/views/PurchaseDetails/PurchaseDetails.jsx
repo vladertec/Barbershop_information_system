@@ -41,24 +41,10 @@ const PurchaseDetails = () => {
     }
 
     // if (user.paymentMethod === "") {
-    // } else {
-    //   navigate("/success")
     // }
-    // dispatch(removeAllCart([]))
+
     navigate("/cart/purchase/success")
     dispatch(removeAllCart([]))
-
-    // console.log("##########USER_INFORMATION###########")
-    // console.log(`
-    // Name: ${user.name},
-    // Surname: ${user.surname},
-    // Number: ${user.number},
-    // PaymentMethod: ${user.paymentMethod},
-    // Adress: ${user.adress}`)
-    // console.log("###########USER_PRODUCTS#############")
-    // console.log(
-    //   user.userListProducts.forEach((product) => console.log(product))
-    // )
   }
 
   return (

@@ -29,6 +29,21 @@ const reducer = (state = initialState, action) => {
         ),
       }
     }
+      
+    case "REMOVE_ALL_PRODUCT_FROM_FAVOURITE": {
+      return {
+        ...state,
+        favouriteList: action.payload,
+      }
+    }
+      
+    case "UPDATE_PRODUCT_IN_FAVOURITE": {
+      return {
+        ...state,
+        favouriteList: action.payload,
+      }
+    }
+      
     default: {
       return state
     }

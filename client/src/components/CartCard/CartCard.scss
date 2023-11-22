@@ -16,17 +16,18 @@
 
   .cart-text {
     display: flex;
-    align-items: center;
     font-size: 1.5vw;
     width: 75%;
 
     &__title {
       @include flex-container;
+      font-family: "Arima Madurai", serif;
       width: 20%;
       font-weight: bold;
     }
 
     &__description {
+      font-family: "Arima Madurai", serif;
       width: 50%;
       @include flex-container;
       text-align: justify;
@@ -34,11 +35,13 @@
 
     &__color {
       @include flex-container;
+      font-family: "Arima Madurai", serif;
       width: 13%;
       margin-left: 4%;
     }
 
     &__price {
+      font-family: "Arima Madurai", serif;
       width: 13%;
       @include flex-container;
     }
@@ -65,4 +68,50 @@
     color: #fff;
   }
 
+  @include phone {
+    margin-top: 7%;
+    flex-direction: column;
+
+    &__img {
+      margin-top: 2%;
+      width: 95%;
+      height: auto;
+      border-top-left-radius: 0px;
+      border-bottom-left-radius: 0px;
+      border-radius: 10px;
+    }
+
+    .cart-text {
+      margin: 4% 0%;
+      @include flex-container;
+      justify-content: space-between;
+      &__title {
+        width: 50%;
+        font-size: 3vw;
+      }
+
+      &__description {
+        display: none;
+      }
+
+      &__color {
+        display: none;
+      }
+      &__price {
+        font-size: 3vw;
+        font-family: "Arima Madurai", serif;
+        width: 50%;
+        @include flex-container;
+      }
+    }
+
+    &__btn {
+      margin: 4% 0%;
+      width: 50%;
+      border: none;
+      border-radius: 10px;
+      font-size: 1.5vw;
+      font-weight: bold;
+    }
+  }
 }

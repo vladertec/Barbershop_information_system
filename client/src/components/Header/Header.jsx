@@ -1,15 +1,39 @@
 import ShoppingBasketIcon from "@mui/icons-material/ShoppingBasket"
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 import HeaderMenuList from "../HeaderMenuList/HeaderMenuList"
 import MenuIcon from "@mui/icons-material/Menu"
 import { useState } from "react"
 import HeaderMenuListPhoneVersion from "../HeaderMenuListPhoneVersion/HeaderMenuListPhoneVersion"
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder"
-import { useSelector } from "react-redux"
+import { useDispatch, useSelector } from "react-redux"
+import { updateUser } from "../../api/user"
+import { removeAllCart } from "../../store/cart/action"
+import { removeAllFavourite } from "../../store/favourite/action"
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false)
-  const cartList = useSelector((state) => state.cart.cartList)
+  const userCartList = useSelector((state) => state.cart.cartList)
+  const userFavouriteList = useSelector(
+    (state) => state.favourite.favouriteList
+  )
+  const navigate = useNavigate()
+  const dispatch = useDispatch()
+
+  const updateUserData = {
+    cartList: userCartList,
+    favouriteList: userFavouriteList,
+  }
+
+  const logoutClick = async (event) => {
+    event.preventDefault()
+    if (localStorage.getItem("accessToken").length > 0) {
+      await updateUser(localStorage.getItem("accessToken"), updateUserData)
+      dispatch(removeAllCart([]))
+      dispatch(removeAllFavourite([]))
+      localStorage.setItem("accessToken", [])
+    }
+    navigate("/login")
+  }
 
   return (
     <div className="header">
@@ -28,12 +52,6 @@ const Header = () => {
       )}
 
       <div className="header__user-container active-container">
-        <Link to="/login" className="active-container__btn-link">
-          <button className="active-container__book-btn" type="button">
-            Login
-          </button>
-        </Link>
-
         <div className="active-container__icons-container">
           <Link
             className="active-container__menu-link"
@@ -47,12 +65,24 @@ const Header = () => {
           <Link to="/cart" className="active-container__shopping-link">
             <ShoppingBasketIcon className="active-container__shopping-icon" />
             <p className="active-container__shopping-number">
-              {cartList.length}
+              {userCartList.length}
             </p>
           </Link>
 
           <Link to="/favourite" className="active-container__shopping-link">
             <FavoriteBorderIcon className="active-container__shopping-icon" />
+          </Link>
+
+          <Link className="active-container__btn-link">
+            <button
+              className="active-container__book-btn"
+              onClick={(event) => logoutClick(event)}
+            >
+              {localStorage.getItem("accessToken") &&
+              localStorage.getItem("accessToken").length > 0
+                ? "Logout"
+                : "Login"}
+            </button>
           </Link>
         </div>
       </div>

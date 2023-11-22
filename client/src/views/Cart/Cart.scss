@@ -1,22 +1,32 @@
 .cart-list {
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  padding-left: 5%;
-  padding-right: 5%;
-  position: relative;
+  &__cart-container {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    padding-left: 5%;
+    padding-right: 5%;
+    position: relative;
+  }
 
-  &__buy-modal {
-    position: absolute;
+  &__price-container {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    padding-left: 5%;
+    padding-right: 5%;
+    position: relative;
   }
 
   &__total-sum {
+    padding-left: 5%;
+    padding-right: 5%;
     margin-top: 3%;
     padding-top: 1%;
     font-size: 1.9vw;
     text-align: right;
     border-top: 1px solid white;
     color: white;
+    font-family: "Arima Madurai", serif;
   }
 
   &__buy-btn {
@@ -28,6 +38,7 @@
     font-weight: bold;
     color: white;
     background-color: darkgoldenrod;
+    font-family: "Arima Madurai", serif;
     &:hover {
       background-color: #7b5d20;
     }
@@ -43,6 +54,18 @@
   }
 
   @include phone {
+    margin-bottom: 6%;
+    &__cart-container {
+      padding-left: 20%;
+      padding-right: 20%;
+    }
+
+    &__price-container {
+      padding-left: 10%;
+      padding-right: 10%;
+      margin-top: 4%;
+    }
+
     &__message {
       color: white;
       margin-top: 75%;
@@ -50,6 +73,17 @@
       text-align: center;
       font-size: 5.5vw;
       font-weight: bold;
+    }
+
+    &__total-sum {
+      padding-top: 3%;
+      font-size: 4vw;
+    }
+
+    &__buy-btn {
+      margin-top: 8%;
+      padding: 1% 20%;
+      font-size: 4vw;
     }
   }
 }

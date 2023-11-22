@@ -20,37 +20,24 @@ const Cart = () => {
     window.scrollTo({ top: 0, left: 0, behavior: "smooth" })
   }, [])
 
-  // const buttonBuyClick = () => {
-  //   setModalIsOpen(true)
-  // }
-
-  // const updateModalIsOpen = (boolean) => {
-  //   setModalIsOpen(boolean)
-  // }
-
   return (
     <div className="cart-list">
-      {/* {modalIsOpen && (
-        <div className="detailed-product__modal-container">
-          <BuyModal updateModalIsOpen={updateModalIsOpen} />
-        </div>
-      )} */}
-
-      {cartList.map((card) => {
-        return (
-          <CartCard
-            key={card._id}
-            myKeyButton={card.vendorCode}
-            name={card.name}
-            price={card.price}
-            photos={card.photos[0]}
-            description={card.shortDescription}
-          />
-        )
-      })}
-
+      <div className="cart-list__cart-container">
+        {cartList.map((card) => {
+          return (
+            <CartCard
+              key={card._id}
+              myKeyButton={card.vendorCode}
+              name={card.name}
+              price={card.price}
+              photos={card.photos[0]}
+              description={card.shortDescription}
+            />
+          )
+        })}
+      </div>
       {cartList.length > 0 ? (
-        <>
+        <div className="cart-list__price-container">
           <p className="cart-list__total-sum">
             Total: {amountSubstractingCart()}$
           </p>
@@ -62,7 +49,7 @@ const Cart = () => {
           >
             Buy products
           </button>
-        </>
+        </div>
       ) : (
         <p className="cart-list__message">No items in cart</p>
       )}

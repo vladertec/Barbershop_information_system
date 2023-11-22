@@ -1,17 +1,31 @@
 import { useState } from "react"
 import { useNavigate } from "react-router-dom"
 import { registerUser } from "../../api/userStatus"
+import CustomErrorMessage from "../../components/ErrorMessageCustom/ErrorMessageCustom"
 
 const Registration = () => {
   const navigate = useNavigate()
   const [login, setLogin] = useState({ username: "", password: "" })
+  const [error, setError] = useState({ statusError: false, message: "" })
 
   const registerClick = async (event) => {
     event.preventDefault()
+    setError({
+      ...error,
+      statusError: false,
+      message: "",
+    })
     const result = await registerUser(login)
+    console.log(result)
     if (result.status === 200) {
       navigate("/registration/success")
-      localStorage.setItem("accessToken", result.token)
+    } else {
+      const errorMessage = result.response.data.message
+      setError({
+        ...error,
+        statusError: true,
+        message: errorMessage,
+      })
     }
   }
 
@@ -21,8 +35,12 @@ const Registration = () => {
         Don't have an account? Please, register.
       </p>
       <div className="registration__registration-container">
-        <img src="./img/Logo.svg" alt="Business view - Reports" />
-        <form onSubmit={registerClick}>
+        <img
+          className="registration__img"
+          src="./img/Logo.svg"
+          alt="Business view - Reports"
+        />
+        <form className="registration__form" onSubmit={registerClick}>
           <div className="registration__input-group">
             <label className="registration__input-name" htmlFor="email">
               Username
@@ -59,6 +77,11 @@ const Registration = () => {
           </div>
           <button className="registration__btn">Register</button>
         </form>
+        {error && (
+          <div className="registration__error-message">
+            <CustomErrorMessage name={error.message} />
+          </div>
+        )}
       </div>
     </div>
   )

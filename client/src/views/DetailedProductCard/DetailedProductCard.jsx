@@ -45,7 +45,7 @@ const DetailedProductCard = () => {
       <div className="detailed-product__container">
         {modalIsOpen && (
           <div className="detailed-product__modal-container">
-            <Modal updateModalIsOpen={updateModalIsOpen} />
+            <Modal updateModalIsOpen={updateModalIsOpen} type="cart" />
           </div>
         )}
 
