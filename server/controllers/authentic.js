@@ -36,13 +36,13 @@ const registration = async (req, res) => {
         .json({ message: "User with the same name already exists" })
     }
     const hashPassword = bcrypt.hashSync(password, 7)
-    const userRole = await Role.findOne({ value: "USER" })
+    const userRole = await Role.findOne({ value: "BARBER" })
     const user = new User({
       username,
       password: hashPassword,
       roles: [userRole.value],
-
-      
+      // name: "",
+      // surname: ""
     })
     user.save()
     return res.json({ message: "User saved successfully" })

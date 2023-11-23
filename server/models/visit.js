@@ -2,13 +2,23 @@ import mongoose from "mongoose"
 
 const visitSchema = new mongoose.Schema(
   {
-    name: String,
-    surname: String,
-    mobilePhone: Number,
-    service: String,
-    barber: String,
-    date: Date,
-    time: String,
+    userId: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "user",
+      required: true,
+    },
+    barberId: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "user",
+      required: true,
+    },
+    name: { type: String },
+    surname: { type: String },
+    date: { type: Date, required: true },
+    time: { type: String },
+    mobilePhone: { type: Number },
+    service: { type: String, required: true },
+    isDone: { type: Boolean, default: false },
   },
   { versionKey: false }
 )

@@ -1,10 +1,22 @@
-import React, { useState } from "react"
+import React, { useEffect, useState } from "react"
 import { Formik } from "formik"
 import { Link, useNavigate } from "react-router-dom"
-import { sendVisit } from "../../api/visit"
+import { createVisit } from "../../api/visit"
+import Error from "../Error/Error"
+import { getBarbers } from "../../api/barber"
 
 const MakeAppointment = () => {
   const navigate = useNavigate()
+  const [barbers, setBarbers] = useState([])
+
+  useEffect(() => {
+    const namesBarbers = async () => {
+      const result = await getBarbers()
+      setBarbers(result)
+    }
+
+    namesBarbers()
+  }, [])
 
   const [appointmentObject, setAppointmentObject] = useState({
     name: "",
@@ -16,9 +28,16 @@ const MakeAppointment = () => {
     time: "",
   })
 
-  const sendContactInformation = (e) => {
-    sendVisit(appointmentObject)
-    navigate("/appointment/success")
+  const sendContactInformation = async (e) => {
+    const result = await createVisit(
+      localStorage.getItem("accessToken"),
+      appointmentObject
+    )
+    if (result.response.status === 200) {
+      navigate("/appointment/success")
+    } else {
+      ;<Error />
+    }
   }
 
   return (
@@ -121,6 +140,7 @@ const MakeAppointment = () => {
                 })
               }
             >
+              <option></option>
               <option value="Haircut long hair 30$">
                 Haircut long hair 30$
               </option>
@@ -145,11 +165,15 @@ const MakeAppointment = () => {
                 })
               }
             >
-              <option value="Vladik Sarnavskyi">Vladik Sarnavskyi</option>
-              <option value="Alina Levchenko">Alina Levchenko</option>
-              <option value="Yuryi Podnebesov">Yuryi Podnebesov</option>
-              <option value="Kornaga Yaroslav">Kornaga Yaroslav</option>
-              <option value="Yurii Polischuk">Yurii Polischuk</option>
+              <option></option>
+              {barbers.map((barber) => (
+                <option
+                  key={barber._id}
+                  value={`${barber.name} ${barber.surname}`}
+                >
+                  {barber.name} {barber.surname}
+                </option>
+              ))}
             </select>
 
             <input

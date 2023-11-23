@@ -28,19 +28,8 @@ const __dirname = dirname(__filename)
 
 app.use(express.static(path.join(__dirname, "public")))
 
-//Barber
-app.post("/api/barber", BarberController.add)
-app.get("/api/barber", BarberController.getAll)
-app.get("/api/barber/:barberId", BarberController.getOne)
-app.patch("/api/barber/:barberId", BarberController.update)
-app.delete("/api/barber/:barberId", BarberController.deleteOne)
-
 //Visit
-app.post("/api/visit", VisitController.add)
-app.get("/api/visit", VisitController.getAll)
-app.get("/api/visit/:visitId", VisitController.getOne)
-app.patch("/api/visit/:visitId", VisitController.update)
-app.delete("/api/visit/:visitId", VisitController.deleteOne)
+app.post("/api/visit", authenticMiddleware, VisitController.createVisit)
 
 //News
 app.post("/api/news", NewsController.add)
@@ -74,15 +63,11 @@ app.post(
 )
 app.post("/api/login", AuthenticController.login)
 app.post("/api/logout", AuthenticController.logout)
-app.get(
-  "/api/users",
-  authenticMiddleware,
-  roleMiddleware(["BARBER"]),
-  AuthenticController.getUsers
-)
-
+app.get("/api/users", roleMiddleware(["BARBER"]), AuthenticController.getUsers)
 app.get("/api/user", authenticMiddleware, UserController.getUser)
 app.patch("/api/user", authenticMiddleware, UserController.updateUser)
+app.get("/api/barber", authenticMiddleware, UserController.getBarber)
+app.get("/api/barbers", UserController.getBarbers)
 
 //About connection
 const PORT = process.env.PORT || 5000

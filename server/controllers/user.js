@@ -17,6 +17,29 @@ const getUser = async (req, res) => {
   }
 }
 
+const getBarber = async (req, res) => {
+  try {
+    const token = req.headers.authorization.split(" ")[1]
+    const decodedInformation = jwt.verify(token, process.env.JWT_ACCESS_KEY)
+
+    const barber = await User.findById(decodedInformation.id)
+    res.json({ barber })
+  } catch (error) {
+    console.error("Error retrieving user information:", error)
+    res.status(500).json({ message: "Internal Server Error" })
+  }
+}
+
+const getBarbers = async (req, res) => {
+  try {
+    const barbers = await User.find({ roles: 'BARBER' });
+    res.json(barbers);
+  } catch (error) {
+    console.error("Error retrieving user information:", error)
+    res.status(500).json({ message: "Internal Server Error" })
+  }
+}
+
 const updateUser = async (req, res) => {
   try {
     if (!req.headers.authorization) {
@@ -48,4 +71,4 @@ const updateUser = async (req, res) => {
   }
 }
 
-export default { getUser, updateUser }
+export default { getUser, updateUser, getBarber, getBarbers }

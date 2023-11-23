@@ -16,7 +16,6 @@ const Registration = () => {
       message: "",
     })
     const result = await registerUser(login)
-    console.log(result)
     if (result.status === 200) {
       navigate("/registration/success")
     } else {
