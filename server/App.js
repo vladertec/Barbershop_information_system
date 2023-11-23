@@ -3,10 +3,9 @@ import ProductController from "./controllers/product.js"
 import VisitController from "./controllers/visit.js"
 import ContactController from "./controllers/contact.js"
 import EmailController from "./controllers/email.js"
-import BarberController from "./controllers/barber.js"
 import AuthenticController from "./controllers/authentic.js"
+import PurсhaseController from "./controllers/purchase.js"
 import UserController from "./controllers/user.js"
-
 import path from "path"
 import { fileURLToPath } from "url"
 import { dirname } from "path"
@@ -41,6 +40,8 @@ app.post("/api/product", ProductController.add)
 app.get("/api/product", ProductController.getAll)
 app.get("/api/product/:productId", ProductController.getOne)
 app.delete("/api/product/:productId", ProductController.deleteOne)
+app.post("/api/purchase", authenticMiddleware, PurсhaseController.createPurchase)
+// app.post("/api/send-notification", PurсhaseController.createPurchase)
 
 //Contact
 app.post("/api/contact", ContactController.add)

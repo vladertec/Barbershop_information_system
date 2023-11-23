@@ -1,9 +1,11 @@
 import { useDispatch, useSelector } from "react-redux"
 import { Formik, Field, Form, ErrorMessage } from "formik"
-// import { removeAllCart } from "../../store/cart/actions.js"
 import { object, string, number } from "yup"
 import { useNavigate } from "react-router"
 import { removeAllCart } from "../../store/cart/action"
+import { sendPurchase } from "../../api/purchases"
+import Error from "../Error/Error"
+import emailjs from "emailjs-com"
 
 const CustomErrorMessage = ({ name }) => (
   <ErrorMessage name={name}>
@@ -29,22 +31,50 @@ const PurchaseDetails = () => {
   const navigate = useNavigate()
   const dispatch = useDispatch()
 
-  const handleSubmit = (values) => {
-    let user = {
+  const sendEmail = (email, userName, userLength) => {
+    emailjs
+      .send(
+        "service_a7nlbge",
+        "template_a21vh6v",
+        {
+          name: userName,
+          email: `${email}`,
+          message: `Thanks for your purchase! You bought ${userLength} products! Our manager will contact with you/`,
+        },
+        "b-9jRpofu0_GJSdEI"
+      )
+      .then(
+        (response) => {
+          console.log("Email sent successfully:", response)
+        },
+        (error) => {
+          console.error("Error sending email:", error)
+        }
+      )
+  }
+
+  const handleSubmit = async (values, { setSubmitting }) => {
+    let userPurchase = {
       name: values.name,
       surname: values.surname,
-      number: values.number,
+      mobileNumber: values.number,
       email: values.email,
       paymentMethod: values.paymentMethod,
       adress: values.adress,
       userListProducts: cartList,
     }
 
-    // if (user.paymentMethod === "") {
-    // }
-
-    navigate("/cart/purchase/success")
-    dispatch(removeAllCart([]))
+    const result = await sendPurchase(
+      localStorage.getItem("accessToken"),
+      userPurchase
+    )
+    if (result.status === 200) {
+      navigate("/cart/purchase/success")
+      sendEmail(userPurchase.name, userPurchase.userListProducts.length)
+      dispatch(removeAllCart([]))
+    } else {
+      <Error />
+    }
   }
 
   return (
@@ -59,6 +89,7 @@ const PurchaseDetails = () => {
           number: "",
         }}
         validationSchema={buySchema}
+        onSubmit={(values, actions) => handleSubmit(values, actions)}
       >
         {(propsFormik) => {
           return (
@@ -158,11 +189,7 @@ const PurchaseDetails = () => {
                 >
                   Back to cart
                 </button>
-                <button
-                  className="purchase-container__btn"
-                  type="submit"
-                  onClick={handleSubmit}
-                >
+                <button className="purchase-container__btn" type="submit">
                   Checkout
                 </button>
               </div>

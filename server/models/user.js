@@ -10,7 +10,8 @@ const userSchema = new mongoose.Schema(
     number: { type: Number },
     cartList: { type: Array },
     favouriteList: { type: Array },
-    visits: [{ type: mongoose.Schema.Types.ObjectId, ref: 'visit' }],
+    visits: [{ type: mongoose.Schema.Types.ObjectId, ref: "visit" }],
+    purchases: { type: Array },
   },
   { versionKey: false }
 )

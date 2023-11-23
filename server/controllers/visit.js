@@ -24,16 +24,18 @@ const createVisit = async (req, res) => {
       date: req.body.date,
       time: req.body.time,
       service: req.body.service,
-      barber: req.body.barber,
     })
-    await User.findByIdAndUpdate(findedBarber._id, { $push: { visits: newVisit } });
-    await User.findByIdAndUpdate(decodedInformation.id, { $push: { visits: newVisit._id } });
+    await User.findByIdAndUpdate(findedBarber._id, {
+      $push: { visits: newVisit },
+    })
+    await User.findByIdAndUpdate(decodedInformation.id, {
+      $push: { visits: newVisit._id },
+    })
     await newVisit.save()
   } catch (error) {
     console.error("Error creating visit:", error)
     res.status(500).json({ error: "Internal Server Error" })
   }
 }
-
 
 export default { createVisit }

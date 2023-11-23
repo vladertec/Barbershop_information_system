@@ -15,6 +15,15 @@ const DetailedBlogCard = () => {
     navigate("/blog")
   }
 
+  const getHashCode = (str) =>{
+    let hash = 0
+    for (let i = 0; i < str.length; i++) {
+      const char = str.charCodeAt(i)
+      hash = (hash << 5) - hash + char
+    }
+    return hash
+  }
+
   window.scrollTo({ top: 0, left: 0, behavior: "smooth" })
 
   return (
@@ -22,7 +31,14 @@ const DetailedBlogCard = () => {
       <p className="detailed-blog__date">Date: {detailedNews.date}</p>
       <div className="detailed-blog__img-container">
         {detailedNews.photos.map((photo) => {
-          return <img className="detailed-blog__img" src={photo} alt={photo} />
+          return (
+            <img
+              className="detailed-blog__img"
+              key={getHashCode(photo)}
+              src={photo}
+              alt={photo}
+            />
+          )
         })}
       </div>
       <p className="detailed-blog__description">

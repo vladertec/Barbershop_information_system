@@ -36,7 +36,7 @@ const MakeAppointment = () => {
     if (result.response.status === 200) {
       navigate("/appointment/success")
     } else {
-      ;<Error />
+      <Error />
     }
   }
 
