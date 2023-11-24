@@ -32,8 +32,8 @@ const getBarber = async (req, res) => {
 
 const getBarbers = async (req, res) => {
   try {
-    const barbers = await User.find({ roles: 'BARBER' });
-    res.json(barbers);
+    const barbers = await User.find({ roles: "BARBER" })
+    res.json(barbers)
   } catch (error) {
     console.error("Error retrieving user information:", error)
     res.status(500).json({ message: "Internal Server Error" })
@@ -59,11 +59,15 @@ const updateUser = async (req, res) => {
     if (!user) {
       return res.status(404).json({ error: "Пользователь не найден" })
     }
-    console.log(req.body)
 
-    user.cartList = req.body.cartList
-    user.favouriteList = req.body.favouriteList
-
+    for (const key in req.body) {
+      if (
+        Object.prototype.hasOwnProperty.call(req.body, key) &&
+        req.body[key] !== user[key]
+      ) {
+        user[key] = req.body[key]
+      }
+    }
     await user.save()
     res.json(user)
   } catch (error) {

@@ -7,6 +7,7 @@ const userSchema = new mongoose.Schema(
     roles: [{ type: String, ref: "role" }],
     name: { type: String },
     surname: { type: String },
+    email: { type: String },
     number: { type: Number },
     cartList: { type: Array },
     favouriteList: { type: Array },

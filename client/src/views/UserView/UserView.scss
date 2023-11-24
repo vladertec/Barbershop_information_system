@@ -1,0 +1,79 @@
+.user-page {
+  width: 100%;
+  color: white;
+  margin: 7% 0; 
+
+  &__container {
+    @include flex-container;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  &__form-container {
+    @include flex-container;
+    flex-direction: column;
+    width: 60%;
+  }
+
+  &__title {
+    font-family: "Arima Madurai", serif;
+    font-size: 3vw;
+    font-weight: bold;
+  }
+
+  &__form {
+    margin-top: 2%;
+  }
+
+  &__information {
+    font-size: 1.7vw;
+  }
+
+  &__label {
+    display: block;
+    margin-top: 8%;
+    color: white;
+    font-weight: bold;
+    font-size: 2vw;
+    font-family: "Arima Madurai", serif;
+  }
+
+  &__name-field {
+    margin-top: 1%;
+    font-family: "Arima Madurai", serif;
+    font-size: 150%;
+    background-color: #000000;
+    color: white;
+    border-radius: 10px;
+    border: 1px solid #999999;
+  }
+
+  &__btn-update {
+    margin-top: 12%;
+    @include flex-container;
+  }
+
+  &__btn-history {
+    width: 40%;
+    @include flex-container;
+    flex-direction: column;
+    justify-content: space-around;
+    gap: 60px; 
+  }
+
+  &__btn {
+    color: white;
+    background-color: #b48e40;
+    padding: 3% 6%;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 1.65vw;
+    font-weight: bold;
+    font-family: "Arima Madurai", serif;
+
+    &:hover {
+      font-size: 1.6vw;
+      background-color: #7b5d20;
+    }
+  }
+}

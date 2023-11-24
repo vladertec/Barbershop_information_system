@@ -14,6 +14,7 @@ const visitSchema = new mongoose.Schema(
     },
     name: { type: String },
     surname: { type: String },
+    email: { type: String },
     date: { type: Date, required: true },
     time: { type: String },
     mobilePhone: { type: Number },

@@ -39,7 +39,7 @@ const PurchaseDetails = () => {
         {
           name: userName,
           email: `${email}`,
-          message: `Thanks for your purchase! You bought ${userLength} products! Our manager will contact with you/`,
+          message: `Thanks for your purchase! You bought ${userLength} products! Our manager will contact with you.`,
         },
         "b-9jRpofu0_GJSdEI"
       )
@@ -70,10 +70,14 @@ const PurchaseDetails = () => {
     )
     if (result.status === 200) {
       navigate("/cart/purchase/success")
-      sendEmail(userPurchase.name, userPurchase.userListProducts.length)
+      sendEmail(
+        userPurchase.email,
+        userPurchase.name,
+        userPurchase.userListProducts.length
+      )
       dispatch(removeAllCart([]))
     } else {
-      <Error />
+      ;<Error />
     }
   }
 

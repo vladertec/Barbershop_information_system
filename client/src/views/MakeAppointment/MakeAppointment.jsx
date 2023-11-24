@@ -4,23 +4,16 @@ import { Link, useNavigate } from "react-router-dom"
 import { createVisit } from "../../api/visit"
 import Error from "../Error/Error"
 import { getBarbers } from "../../api/barber"
+import emailjs from "emailjs-com"
 
 const MakeAppointment = () => {
   const navigate = useNavigate()
   const [barbers, setBarbers] = useState([])
 
-  useEffect(() => {
-    const namesBarbers = async () => {
-      const result = await getBarbers()
-      setBarbers(result)
-    }
-
-    namesBarbers()
-  }, [])
-
   const [appointmentObject, setAppointmentObject] = useState({
     name: "",
     surname: "",
+    email: "",
     mobilePhone: 380,
     service: "",
     barber: "",
@@ -28,12 +21,48 @@ const MakeAppointment = () => {
     time: "",
   })
 
+  useEffect(() => {
+    const namesBarbers = async () => {
+      const result = await getBarbers()
+      setBarbers(result)
+    }
+    namesBarbers()
+  }, [])
+
+  const sendEmail = (email, userName, date, time) => {
+    emailjs
+      .send(
+        "service_a7nlbge",
+        "template_a21vh6v",
+        {
+          name: userName,
+          email: `${email}`,
+          message: `Thanks for your appointment! Your time: ${date} at ${time}. Have a good day!`,
+        },
+        "b-9jRpofu0_GJSdEI"
+      )
+      .then(
+        (response) => {
+          console.log("Email sent successfully:", response)
+        },
+        (error) => {
+          console.error("Error sending email:", error)
+        }
+      )
+  }
+
   const sendContactInformation = async (e) => {
     const result = await createVisit(
       localStorage.getItem("accessToken"),
       appointmentObject
     )
-    if (result.response.status === 200) {
+    if (result.status === 200) {
+      sendEmail(
+        appointmentObject.email,
+        appointmentObject.name,
+        appointmentObject.date,
+        appointmentObject.time
+      )
       navigate("/appointment/success")
     } else {
       <Error />
@@ -47,6 +76,7 @@ const MakeAppointment = () => {
         initialValues={{
           name: "",
           surname: "",
+          email: "",
           mobilePhone: "",
           service: "",
           barber: "",
@@ -63,12 +93,6 @@ const MakeAppointment = () => {
             errors.email = "Invalid email address"
           }
           return errors
-        }}
-        onSubmit={(values, { setSubmitting }) => {
-          setTimeout(() => {
-            alert(JSON.stringify(values, null, 2))
-            setSubmitting(false)
-          }, 400)
         }}
       >
         {({
@@ -109,6 +133,22 @@ const MakeAppointment = () => {
                 setAppointmentObject({
                   ...appointmentObject,
                   surname: e.target.value,
+                })
+              }
+            />
+            {errors.password && touched.password && errors.password}
+            <input
+              className="book-form__input"
+              placeholder="Email"
+              type="email"
+              name="email"
+              onChange={handleChange}
+              onBlur={handleBlur}
+              value={appointmentObject.email}
+              onInput={(e) =>
+                setAppointmentObject({
+                  ...appointmentObject,
+                  email: e.target.value,
                 })
               }
             />

@@ -1,13 +1,42 @@
 import { Link } from "react-router-dom"
+import { getUser } from "../../api/user"
+import { useEffect, useState } from "react"
 
 const HeaderMenuList = () => {
+  const [userData, setUserData] = useState({
+    role: "",
+  })
+  useEffect(() => {
+    const userInformation = async () => {
+      const result = await getUser(localStorage.getItem("accessToken"))
+
+      setUserData({
+        role: result.roles[0],
+      })
+    }
+    userInformation()
+  }, [])
+
+  let linkTo = "/"
+
+  switch (userData.role) {
+    case "ADMIN":
+      linkTo = "/adminPage"
+      break
+    case "USER":
+      linkTo = "/userPage"
+      break
+    case "BARBER":
+      linkTo = "/barberPage"
+      break
+    default:
+      break
+  }
+
   return (
     <div className="menu-header">
       <Link to="/" className="menu-header__text">
         HOME +
-      </Link>
-      <Link to="/barbers" className="menu-header__text">
-        BARBERS +
       </Link>
       <Link to="/blog" className="menu-header__text">
         BLOG +
@@ -21,6 +50,14 @@ const HeaderMenuList = () => {
       <Link to="/contact" className="menu-header__text">
         CONTACT +
       </Link>
+
+      {localStorage.getItem("accessToken") ? (
+        <Link to={linkTo}> CABINET +</Link>
+      ) : (
+        <Link to="/barbers" className="menu-header__text">
+          BARBERS +
+        </Link>
+      )}
     </div>
   )
 }
