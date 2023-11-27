@@ -34,3 +34,30 @@ export const updateUser = async (token, updateData) => {
     return err
   }
 }
+
+export const getUserAppointmentHistory = async (token) => {
+  try {
+    const { data } = await axios.get(`/api/user/appointmentHistory`, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    })
+    return data
+  } catch (err) {
+    return err
+  }
+}
+
+
+export const getUserPurchaseHistory = async (token) => {
+  try {
+    const { data } = await axios.get(`/api/user/purchaseHistory`, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    })
+    return data
+  } catch (err) {
+    return err
+  }
+}

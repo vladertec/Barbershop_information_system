@@ -39,15 +39,20 @@ const Registration = () => {
           src="./img/Logo.svg"
           alt="Business view - Reports"
         />
-        <form className="registration__form" onSubmit={registerClick}>
+        <form
+          className="registration__form"
+          onSubmit={registerClick}
+          autocomplete="on"
+        >
           <div className="registration__input-group">
-            <label className="registration__input-name" htmlFor="email">
+            <label className="registration__input-name" htmlFor="username">
               Username
             </label>
             <input
               className="registration__input"
               type="text"
               name="login"
+              id="username"
               value={login.username}
               onInput={(e) =>
                 setLogin({
@@ -65,6 +70,7 @@ const Registration = () => {
               className="registration__input"
               type="text"
               name="password"
+              id="password"
               value={login.password}
               onInput={(e) =>
                 setLogin({

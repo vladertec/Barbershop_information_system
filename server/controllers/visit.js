@@ -2,6 +2,7 @@ import Visit from "../models/visit.js"
 import jwt from "jsonwebtoken"
 import dotenv from "dotenv"
 import User from "../models/user.js"
+import mongoose from "mongoose"
 
 dotenv.config()
 
@@ -40,4 +41,18 @@ const createVisit = async (req, res) => {
   }
 }
 
-export default { createVisit }
+const deleteOne = async (req, res) => {
+  const { visitId } = req.params
+  const isValid = mongoose.Types.ObjectId.isValid(visitId)
+  if (!isValid) {
+    return res.status(404).json({ status: 404, message: "Visit not found" })
+  }
+  try {
+    await Visit.deleteOne({ _id: visitId })
+    res.sendStatus(200)
+  } catch {
+    res.sendStatus(500)
+  }
+}
+
+export default { createVisit, deleteOne }

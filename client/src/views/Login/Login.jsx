@@ -49,11 +49,12 @@ const Login = () => {
         />
         <div>
           <div className="login__input-group">
-            <label className="login__input-name" htmlFor="email">
+            <label className="login__input-name" htmlFor="username">
               Username
             </label>
             <input
               className="login__input"
+              id="username"
               type="text"
               name="login"
               value={login.username}
@@ -73,6 +74,7 @@ const Login = () => {
               className="login__input"
               type="text"
               name="password"
+              id="password"
               value={login.password}
               onInput={(e) =>
                 setLogin({

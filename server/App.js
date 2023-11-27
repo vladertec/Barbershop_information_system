@@ -29,6 +29,7 @@ app.use(express.static(path.join(__dirname, "public")))
 
 //Visit
 app.post("/api/visit", authenticMiddleware, VisitController.createVisit)
+app.delete("/api/visit/:visitId", authenticMiddleware, VisitController.deleteOne)
 
 //News
 app.post("/api/news", NewsController.add)
@@ -40,7 +41,11 @@ app.post("/api/product", ProductController.add)
 app.get("/api/product", ProductController.getAll)
 app.get("/api/product/:productId", ProductController.getOne)
 app.delete("/api/product/:productId", ProductController.deleteOne)
-app.post("/api/purchase", authenticMiddleware, PurсhaseController.createPurchase)
+app.post(
+  "/api/purchase",
+  authenticMiddleware,
+  PurсhaseController.createPurchase
+)
 // app.post("/api/send-notification", PurсhaseController.createPurchase)
 
 //Contact
@@ -68,7 +73,23 @@ app.get("/api/users", roleMiddleware(["BARBER"]), AuthenticController.getUsers)
 app.get("/api/user", authenticMiddleware, UserController.getUser)
 app.patch("/api/user", authenticMiddleware, UserController.updateUser)
 app.get("/api/barber", authenticMiddleware, UserController.getBarber)
-app.get("/api/barbers", UserController.getBarbers)
+app.get(
+  "/api/barbers",
+  authenticMiddleware,
+  UserController.getAppointmentHistory
+)
+
+app.get(
+  "/api/user/appointmentHistory",
+  authenticMiddleware,
+  UserController.getAppointmentHistory
+)
+
+app.get(
+  "/api/user/purchaseHistory",
+  authenticMiddleware,
+  UserController.getUserPurchaseHistory
+)
 
 //About connection
 const PORT = process.env.PORT || 5000
@@ -78,6 +99,7 @@ app.listen(PORT, () => {
 })
 
 mongoose
+
   .set("strictQuery", false)
   .connect(process.env.MONGO_URI, {
     useNewUrlParser: true,

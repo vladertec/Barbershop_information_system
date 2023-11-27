@@ -6,18 +6,25 @@ const HeaderMenuList = () => {
   const [userData, setUserData] = useState({
     role: "",
   })
+  let linkTo = "/"
+
   useEffect(() => {
     const userInformation = async () => {
-      const result = await getUser(localStorage.getItem("accessToken"))
-
-      setUserData({
-        role: result.roles[0],
-      })
+      if (localStorage.getItem("accessToken")) {
+        const result = await getUser(localStorage.getItem("accessToken"))
+        if (result.roles && result.roles.length > 0) {
+          setUserData({
+            role: result.roles[0],
+          })
+        } else {
+          setUserData({
+            role: "",
+          })
+        }
+      }
     }
     userInformation()
-  }, [])
-
-  let linkTo = "/"
+  }, [localStorage.getItem("accessToken")])
 
   switch (userData.role) {
     case "ADMIN":
@@ -52,7 +59,7 @@ const HeaderMenuList = () => {
       </Link>
 
       {localStorage.getItem("accessToken") ? (
-        <Link to={linkTo}> CABINET +</Link>
+        <Link to={linkTo}>CABINET +</Link>
       ) : (
         <Link to="/barbers" className="menu-header__text">
           BARBERS +
