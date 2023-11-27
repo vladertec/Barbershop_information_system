@@ -2,7 +2,7 @@ import { useEffect, useState } from "react"
 import { deleteVisit } from "../../api/visit"
 import Error from "../../views/Error/Error"
 
-const AppointmentCard = ({
+const AppointmentUserCard = ({
   name,
   surname,
   date,
@@ -48,4 +48,4 @@ const AppointmentCard = ({
   )
 }
 
-export default AppointmentCard
+export default AppointmentUserCard

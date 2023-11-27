@@ -2,6 +2,8 @@ import User from "../models/user.js"
 import jwt from "jsonwebtoken"
 import dotenv from "dotenv"
 import Visit from "../models/visit.js"
+import Purchase from "../models/purchase.js"
+import Product from "../models/product.js"
 
 dotenv.config()
 
@@ -86,7 +88,6 @@ const getAppointmentHistory = async (req, res) => {
     if (!user) {
       return res.status(404).json({ error: "User not found" })
     }
-
     let visitDetails
 
     if (user.roles.includes("BARBER")) {

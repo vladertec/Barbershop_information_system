@@ -1,0 +1,50 @@
+.appointment-barber-card {
+  margin-top: 2%;
+  margin-bottom: 8%;
+  border: 1px solid #b48e40;
+  border-radius: 10px;
+  padding-left: 5%;
+  padding-right: 5%;
+
+  &__text-container {
+    color: white;
+    margin-top: 8%;
+  }
+
+  &__text {
+    font-family: "Arima Madurai", serif;
+    font-size: 2vw;
+    margin-top: 3%;
+  }
+
+  &__date {
+    font-family: "Arima Madurai", serif;
+    font-size: 2vw;
+    margin-top: 3%;
+    color: #b48e40;
+  }
+
+  &__btn-container {
+    margin-top: 5%;
+    margin-bottom: 3%;
+    @include flex-container;
+  }
+
+  &__btn {
+    color: white;
+    background-color: #b48e40;
+    padding: 4% 10%;
+    border-radius: 10px;
+    font-family: "Arima Madurai", serif;
+    cursor: pointer;
+    font-size: 1.2vw;
+    &:hover {
+      background-color: #7b5d20;
+      font-weight: bold;
+    }
+  }
+
+  &:hover {
+    opacity: 80%;
+  }
+}

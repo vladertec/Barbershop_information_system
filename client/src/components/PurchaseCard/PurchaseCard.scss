@@ -1,1 +1,47 @@
- 
+.purchase-card {
+  width: 95%;
+  margin-top: 2%;
+  margin-bottom: 8%;
+  border: 1px solid #b48e40;
+  border-radius: 10px;
+  padding-left: 5%;
+  padding-right: 5%;
+
+  &__purchase-info-container {
+    color: white;
+    font-family: "Arima Madurai", serif;
+    margin-top: 6%;
+  }
+  &__text {
+    font-size: 2vw;
+    margin-top: 3%;
+  }
+
+  &__purchase-container {
+    color: white;
+    font-family: "Arima Madurai", serif;
+    margin-top: 8%;
+  }
+
+  &__product-info-container {
+    display: flex;
+    align-items: center;
+    margin: 4% 0;
+  }
+
+  &__img-product {
+    max-width: 15%;
+    height: auto;
+    border: 1px solid #b48e40;
+    border-radius: 10px;
+  }
+
+  &__product-information{
+    margin-left: 4%;
+    font-size: 1.5vw;
+  }
+
+  &:hover{
+    opacity: 50%;
+  }
+}

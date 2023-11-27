@@ -31,10 +31,13 @@
     font-family: "Arima Madurai", serif;
     cursor: pointer;
     font-size: 1.2vw;
+    &:hover {
+      background-color: #7b5d20;
+      font-weight: bold;
+    }
   }
 
-  &__btn:hover {
-    background-color: #7b5d20;
-    font-weight: bold;
+  &:hover {
+    opacity: 80%;
   }
 }

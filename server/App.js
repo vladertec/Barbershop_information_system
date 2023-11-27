@@ -29,7 +29,8 @@ app.use(express.static(path.join(__dirname, "public")))
 
 //Visit
 app.post("/api/visit", authenticMiddleware, VisitController.createVisit)
-app.delete("/api/visit/:visitId", authenticMiddleware, VisitController.deleteOne)
+app.delete("/api/visit/:visitId", authenticMiddleware, VisitController.deleteVisit)
+app.patch("/api/visit/:visitId", authenticMiddleware, roleMiddleware(["BARBER"]), VisitController.updateVisit)
 
 //News
 app.post("/api/news", NewsController.add)

@@ -41,7 +41,7 @@ const createVisit = async (req, res) => {
   }
 }
 
-const deleteOne = async (req, res) => {
+const deleteVisit = async (req, res) => {
   const { visitId } = req.params
   const isValid = mongoose.Types.ObjectId.isValid(visitId)
   if (!isValid) {
@@ -55,4 +55,36 @@ const deleteOne = async (req, res) => {
   }
 }
 
-export default { createVisit, deleteOne }
+const updateVisit = async (req, res) => {
+  const { visitId } = req.params;
+  const { isDone } = req.body; // Предполагается, что isDone приходит в теле запроса
+
+  const isValid = mongoose.Types.ObjectId.isValid(visitId);
+
+  // Проверка валидности ObjectId
+  if (!isValid) {
+    return res.status(400).json({ error: "Invalid visitId" });
+  }
+
+  try {
+    // Находим визит по его идентификатору и обновляем isDone
+    const visit = await Visit.findByIdAndUpdate(
+      visitId,
+      { isDone: isDone },
+      { new: true }
+    );
+
+    // Проверка, найден ли визит
+    if (!visit) {
+      return res.status(404).json({ error: "Visit not found" });
+    }
+
+    // Отправляем обновленный визит в ответе
+    res.json(visit);
+  } catch (error) {
+    console.error("Error updating visit:", error);
+    res.status(500).json({ message: "Internal Server Error" });
+  }
+};
+
+export default { createVisit, deleteVisit, updateVisit }

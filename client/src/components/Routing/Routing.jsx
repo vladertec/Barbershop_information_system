@@ -19,6 +19,8 @@ import ManagerView from "../../views/ManagerView/ManagerView"
 import BarberView from "../../views/BarberView/BarberView"
 import UserView from "../../views/UserView/UserView"
 import UserAppointmentHistory from "../../views/UserAppointmentHistory/UserAppointmentHistory"
+import UserPurchaseHistory from "../../views/UserPurchaseHistory/UserPurchaseHistory"
+import BarberAppointmentSchedule from "../../views/BarberAppointmentSchedule/BarberAppointmentSchedule"
 
 function Routing() {
   return (
@@ -42,10 +44,20 @@ function Routing() {
       <Route path="/cart/purchase/success" element={<Success />} />
       <Route path="/appointment/success" element={<Success />} />
       <Route path="/userPage" element={<UserView />} />
-      <Route path="/userPage/appointmentHistory" element={<UserAppointmentHistory />} />
+      <Route
+        path="/userPage/appointmentHistory"
+        element={<UserAppointmentHistory />}
+      />
+      <Route
+        path="/userPage/purchaseHistory"
+        element={<UserPurchaseHistory />}
+      />
       <Route path="/barberPage" element={<BarberView />} />
+      <Route
+        path="/barberPage/appointmentsBarber"
+        element={<BarberAppointmentSchedule />}
+      />
       <Route path="/managerPage" element={<ManagerView />} />
-
     </Routes>
   )
 }

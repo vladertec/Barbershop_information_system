@@ -108,7 +108,7 @@ const UserView = () => {
         </div>
         <div className="user-page__btn-history">
           <Link to="/userPage/purchaseHistory" className="user-page__btn">
-            Buying items history
+            Purchase history
           </Link>
           <Link to="/userPage/appointmentHistory" className="user-page__btn">
             Appointment history

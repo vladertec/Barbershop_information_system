@@ -25,3 +25,16 @@ export const deleteVisit = async (token, id) => {
     return err
   }
 }
+
+export const updateVisit = async (token, id, isServiceReady) => {
+  try {
+    const data = await axios.patch(`/api/visit/${id}`, isServiceReady, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    })
+    return data
+  } catch (err) {
+    return err
+  }
+}
