@@ -3,6 +3,7 @@ import jwt from "jsonwebtoken"
 import dotenv from "dotenv"
 import User from "../models/user.js"
 import mongoose from "mongoose"
+import Barber from "../models/barber.js"
 
 dotenv.config()
 
@@ -56,14 +57,14 @@ const deleteVisit = async (req, res) => {
 }
 
 const updateVisit = async (req, res) => {
-  const { visitId } = req.params;
-  const { isDone } = req.body; // Предполагается, что isDone приходит в теле запроса
+  const { visitId } = req.params
+  const { isDone } = req.body // Предполагается, что isDone приходит в теле запроса
 
-  const isValid = mongoose.Types.ObjectId.isValid(visitId);
+  const isValid = mongoose.Types.ObjectId.isValid(visitId)
 
   // Проверка валидности ObjectId
   if (!isValid) {
-    return res.status(400).json({ error: "Invalid visitId" });
+    return res.status(400).json({ error: "Invalid visitId" })
   }
 
   try {
@@ -72,19 +73,50 @@ const updateVisit = async (req, res) => {
       visitId,
       { isDone: isDone },
       { new: true }
-    );
+    )
 
     // Проверка, найден ли визит
     if (!visit) {
-      return res.status(404).json({ error: "Visit not found" });
+      return res.status(404).json({ error: "Visit not found" })
     }
 
     // Отправляем обновленный визит в ответе
-    res.json(visit);
+    res.json(visit)
   } catch (error) {
-    console.error("Error updating visit:", error);
-    res.status(500).json({ message: "Internal Server Error" });
+    console.error("Error updating visit:", error)
+    res.status(500).json({ message: "Internal Server Error" })
   }
-};
+}
 
-export default { createVisit, deleteVisit, updateVisit }
+const getAllVisits = async (req, res) => {
+  try {
+    const visits = await Visit.find()
+
+    const updatedVisits = await Promise.all(
+      visits.map(async (visit) => {
+        const user = await User.findById(visit.userId)
+        const barber = await User.findById(visit.barberId)
+        return {
+          _id: visit._id,
+          date: visit.date,
+          email: visit.email,
+          isDone: visit.isDone,
+          mobilePhone: visit.mobilePhone,
+          name: visit.name,
+          service: visit.service,
+          surname: visit.surname,
+          time: visit.time,
+          barber: barber,
+          user: user,
+        }
+      })
+    )
+
+    res.json(updatedVisits)
+  } catch (error) {
+    console.error(error)
+    res.sendStatus(500)
+  }
+}
+
+export default { createVisit, deleteVisit, updateVisit, getAllVisits }

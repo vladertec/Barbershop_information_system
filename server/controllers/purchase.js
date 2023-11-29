@@ -6,7 +6,6 @@ import emailjs from "emailjs-com"
 
 dotenv.config()
 
-
 const createPurchase = async (req, res) => {
   try {
     const token = req.headers.authorization.split(" ")[1]
@@ -33,4 +32,14 @@ const createPurchase = async (req, res) => {
   }
 }
 
-export default { createPurchase }
+const getAllPurchases = async (req, res) => {
+  try {
+    const product = await Purchase.find()
+    res.json(product)
+  } catch (error) {
+    console.error("Error creating visit:", error)
+    res.status(500).json({ error: "Internal Server Error" })
+  }
+}
+
+export default { createPurchase, getAllPurchases }

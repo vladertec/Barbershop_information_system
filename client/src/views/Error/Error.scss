@@ -24,12 +24,14 @@
     padding: 12%;
     color: white;
     cursor: pointer;
-    font-size: 1.5vw;
+    font-size: 1.7vw;
     font-weight: bold;
+    border: none;
+    border-radius: 10px;
 
     &:hover {
       font-weight: bold;
-      padding: 14%;
+      padding: 13%;
     }
   }
 

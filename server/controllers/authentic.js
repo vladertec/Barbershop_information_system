@@ -28,7 +28,7 @@ const registration = async (req, res) => {
     if (!error.isEmpty()) {
       return res.status(400).json({ message: "Error in validation!", error })
     }
-    const { username, password } = req.body
+    const { username, password, role } = req.body
     const candidate = await User.findOne({ username })
     if (candidate) {
       return res
@@ -36,7 +36,7 @@ const registration = async (req, res) => {
         .json({ message: "User with the same name already exists" })
     }
     const hashPassword = bcrypt.hashSync(password, 7)
-    const userRole = await Role.findOne({ value: "USER" })
+    const userRole = await Role.findOne({ value: role })
     const user = new User({
       username,
       password: hashPassword,

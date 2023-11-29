@@ -15,7 +15,7 @@ export const getBarber = async (token) => {
 
 export const getBarbers = async () => {
   try {
-    const { data } = await axios.get(`/api/barbers`)
+    const { data } = await axios.get(`/api/barbersAll`)
     return data
   } catch (err) {
     return err

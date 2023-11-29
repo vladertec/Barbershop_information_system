@@ -38,3 +38,16 @@ export const updateVisit = async (token, id, isServiceReady) => {
     return err
   }
 }
+
+export const getAllVisits = async (token) => {
+  try {
+    const { data } = await axios.get(`/api/visits`, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    })
+    return data
+  } catch (err) {
+    return err
+  }
+}

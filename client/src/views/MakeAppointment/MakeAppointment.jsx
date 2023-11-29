@@ -65,7 +65,7 @@ const MakeAppointment = () => {
       )
       navigate("/appointment/success")
     } else {
-      <Error />
+      ;<Error />
     }
   }
 

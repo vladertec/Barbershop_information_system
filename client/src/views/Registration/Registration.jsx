@@ -5,7 +5,7 @@ import CustomErrorMessage from "../../components/ErrorMessageCustom/ErrorMessage
 
 const Registration = () => {
   const navigate = useNavigate()
-  const [login, setLogin] = useState({ username: "", password: "" })
+  const [login, setLogin] = useState({ username: "", password: "", role:"USER" })
   const [error, setError] = useState({ statusError: false, message: "" })
 
   const registerClick = async (event) => {

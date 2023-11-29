@@ -1,0 +1,54 @@
+.manager-appointment-history {
+  margin-top: 4%;
+
+  &__empty {
+    @include flex-container;
+    margin: 25%;
+    color: white;
+    font-size: 2.5vw;
+    font-weight: bold;
+    font-family: "Arima Madurai", serif;
+  }
+
+  &__text {
+    text-align: center;
+    font-size: 2.5vw;
+    font-weight: bold;
+    color: white;
+    font-family: "Arima Madurai", serif;
+  }
+
+  &__card-container {
+    margin-top: 3%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    cursor: pointer;
+    align-items: center;
+    justify-items: center;
+    padding-left: 5%;
+    padding-right: 5%;
+  }
+
+  &__pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2%;
+    color: white;
+  }
+
+  @include phone {
+    &__empty {
+      margin: 50% 0;
+      font-size: 3.5vw;
+    }
+
+    &__text {
+      font-size: 2.2vw;
+    }
+
+    &__pagination {
+      margin-top: 3%;
+    }
+  }
+}

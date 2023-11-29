@@ -162,10 +162,10 @@ const PurchaseDetails = () => {
                   as="select"
                 >
                   <option></option>
-                  <option value="Online by card">Online by card</option>
                   <option value="Сash on delivery by mail">
                     Cash on delivery by mail
                   </option>
+                  <option value="Cash in our office">Cash in our office</option>
                 </Field>
                 <CustomErrorMessage name="paymentMethod" />
               </div>

@@ -1,0 +1,29 @@
+.appointment-manager-card {
+  margin-top: 2%;
+  margin-bottom: 8%;
+  border: 1px solid #b48e40;
+  border-radius: 10px;
+  padding-left: 5%;
+  padding-right: 5%;
+
+  &__text-container {
+    color: white;
+    margin-top: 8%;
+  }
+
+  &__text {
+    font-family: "Arima Madurai", serif;
+    font-size: 2vw;
+    margin: 2% 0;
+  }
+
+  &__date {
+    font-family: "Arima Madurai", serif;
+    font-size: 2vw;
+    margin-top: 3%;
+    color: #b48e40;
+  }
+  &:hover {
+    opacity: 80%;
+  }
+}

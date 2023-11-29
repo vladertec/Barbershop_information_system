@@ -9,7 +9,7 @@ const Error = () => {
           <button className="error__btn">Homepage</button>
         </Link>
       </div>
-      <img className="error__img" alt="error" src="./img/error.png" />
+      <img className="error__img" alt="error" src="/img/error.png" />
     </div>
   )
 }

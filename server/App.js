@@ -29,8 +29,30 @@ app.use(express.static(path.join(__dirname, "public")))
 
 //Visit
 app.post("/api/visit", authenticMiddleware, VisitController.createVisit)
-app.delete("/api/visit/:visitId", authenticMiddleware, VisitController.deleteVisit)
-app.patch("/api/visit/:visitId", authenticMiddleware, roleMiddleware(["BARBER"]), VisitController.updateVisit)
+app.delete(
+  "/api/visit/:visitId",
+  authenticMiddleware,
+  VisitController.deleteVisit
+)
+app.patch(
+  "/api/visit/:visitId",
+  authenticMiddleware,
+  roleMiddleware(["BARBER"]),
+  VisitController.updateVisit
+)
+
+app.get(
+  "/api/visits",
+  authenticMiddleware,
+  roleMiddleware(["ADMIN"]),
+  VisitController.getAllVisits
+)
+// app.get(
+//   "/api/visits",
+//   authenticMiddleware,
+//   roleMiddleware(["ADMIN"]),
+//   VisitController.updateVisit
+// )
 
 //News
 app.post("/api/news", NewsController.add)
@@ -47,6 +69,13 @@ app.post(
   authenticMiddleware,
   PurсhaseController.createPurchase
 )
+app.get(
+  "/api/purchase",
+  authenticMiddleware,
+  roleMiddleware(["ADMIN"]),
+  PurсhaseController.getAllPurchases
+)
+
 // app.post("/api/send-notification", PurсhaseController.createPurchase)
 
 //Contact
@@ -74,6 +103,7 @@ app.get("/api/users", roleMiddleware(["BARBER"]), AuthenticController.getUsers)
 app.get("/api/user", authenticMiddleware, UserController.getUser)
 app.patch("/api/user", authenticMiddleware, UserController.updateUser)
 app.get("/api/barber", authenticMiddleware, UserController.getBarber)
+app.get("/api/barbersAll", UserController.getBarbers)
 app.get(
   "/api/barbers",
   authenticMiddleware,

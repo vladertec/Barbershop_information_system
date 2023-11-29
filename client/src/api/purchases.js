@@ -12,3 +12,16 @@ export const sendPurchase = async (token, purchases) => {
     return err
   }
 }
+
+export const getAllPurchases = async (token) => {
+  try {
+    const { data } = await axios.get(`/api/purchase`, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    })
+    return data
+  } catch (err) {
+    return err
+  }
+}

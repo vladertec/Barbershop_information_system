@@ -21,6 +21,10 @@ import UserView from "../../views/UserView/UserView"
 import UserAppointmentHistory from "../../views/UserAppointmentHistory/UserAppointmentHistory"
 import UserPurchaseHistory from "../../views/UserPurchaseHistory/UserPurchaseHistory"
 import BarberAppointmentSchedule from "../../views/BarberAppointmentSchedule/BarberAppointmentSchedule"
+import ManagerAppointmentHistory from "../../views/ManagerAppointmentHistory/ManagerAppointmentHistory"
+import ManagerPurchaseHistory from "../../views/ManagerPurchaseHistory/ManagerPurchaseHistory"
+import ManagerSendEmails from "../../views/ManagerSendEmails/ManagerSendEmails"
+import ManagerAddNews from "../../views/ManagerAddNews/ManagerAddNews"
 
 function Routing() {
   return (
@@ -58,6 +62,20 @@ function Routing() {
         element={<BarberAppointmentSchedule />}
       />
       <Route path="/managerPage" element={<ManagerView />} />
+      <Route
+        path="/managerPage/appointmentHistory"
+        element={<ManagerAppointmentHistory />}
+      />
+      <Route
+        path="/managerPage/purchaseHistory"
+        element={<ManagerPurchaseHistory />}
+      />
+
+      <Route
+        path="/managerPage/sendEmailMessages"
+        element={<ManagerSendEmails />}
+      />
+      <Route path="/managerPage/addNews" element={<ManagerAddNews />} />
     </Routes>
   )
 }

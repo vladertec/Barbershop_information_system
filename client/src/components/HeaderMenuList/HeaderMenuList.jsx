@@ -28,7 +28,7 @@ const HeaderMenuList = () => {
 
   switch (userData.role) {
     case "ADMIN":
-      linkTo = "/adminPage"
+      linkTo = "/managerPage"
       break
     case "USER":
       linkTo = "/userPage"

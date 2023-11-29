@@ -7,6 +7,7 @@ const theme = createTheme({
     ulWhite: {
       "& .MuiPaginationItem-root": {
         color: "#b48e40",
+        fontSize: "2vw"
       },
     },
   },
