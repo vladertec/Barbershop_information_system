@@ -12,7 +12,6 @@ const ManagerPurchaseHistory = () => {
         const result = await getAllPurchases(
           localStorage.getItem("accessToken")
         )
-        console.log(result)
         setPurchaseHistory(result)
       } catch (error) {
         console.error("Error fetching user purchase history:", error)

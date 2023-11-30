@@ -59,7 +59,9 @@ const HeaderMenuList = () => {
       </Link>
 
       {localStorage.getItem("accessToken") ? (
-        <Link to={linkTo}>CABINET +</Link>
+        <Link to={linkTo} className="menu-header__text">
+          CABINET +
+        </Link>
       ) : (
         <Link to="/barbers" className="menu-header__text">
           BARBERS +

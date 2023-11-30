@@ -1,11 +1,15 @@
 .menu-header-mobile {
+  padding: 5% 0;
+  background-color: rgb(23, 22, 22);
   @include flex-container;
-  justify-content: column;
+  gap: 2%;
 
   &__text {
+    font-size: 2vw;
+    color: white;
+
     &:hover {
       color: #b48e40;
-      padding-bottom: 1.5%;
       border-bottom: 1px solid #b48e40;
     }
   }

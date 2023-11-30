@@ -11,7 +11,6 @@ const ManagerAppointmentHistory = () => {
     const appointmentInformation = async () => {
       try {
         const result = await getAllVisits(localStorage.getItem("accessToken"))
-        console.log(result)
         if (result) {
           setAppointmentHistory(result)
         } else {

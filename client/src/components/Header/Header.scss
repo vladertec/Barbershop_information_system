@@ -93,25 +93,30 @@
 
   @include phone {
     height: 13vw;
+
     &__logo-img {
       width: 100%;
       height: auto;
     }
 
-    & .active-container {
+    &__menu-list {
+      width: 20%;
+    }
+
+    .active-container {
+      width: 40%;
+
       &__book-btn {
-        display: none;
+        padding: 25%;
       }
 
-      &__icons-container {
-        @include flex-container;
-        gap: 15%;
+      &__shopping-link {
+        margin-right: 0;
       }
 
       &__menu-icon {
-        width: 100%;
+        width: 45%;
         height: auto;
-        max-height: 100%;
       }
 
       &__menu-link {
@@ -120,13 +125,12 @@
       }
 
       &__shopping-icon {
-        width: 100%;
+        width: 45%;
         height: auto;
-        max-height: 100%;
       }
 
       &__favourite-link {
-        margin-right: 2%;
+        margin-right: 1%;
       }
 
       &__shopping-number {

@@ -8,3 +8,16 @@ export const sendEmail = async (email) => {
     return err
   }
 }
+
+export const getAllEmails = async (token) => {
+  try {
+    const { data } = await axios.get(`/api/email`, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    })
+    return data
+  } catch (err) {
+    return err
+  }
+}

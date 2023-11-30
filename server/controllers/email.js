@@ -26,4 +26,4 @@ const deleteOne = async (req, res) => {
   }
 }
 
-export default { add, getAll, deleteOne }
+export default { add, getAll }

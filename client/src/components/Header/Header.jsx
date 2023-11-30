@@ -47,7 +47,7 @@ const Header = () => {
 
       {isOpen && (
         <div className="header__menu-list-phone">
-          <HeaderMenuListPhoneVersion />{" "}
+          <HeaderMenuListPhoneVersion />
         </div>
       )}
 
