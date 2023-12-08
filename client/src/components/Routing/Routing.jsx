@@ -25,6 +25,7 @@ import ManagerAppointmentHistory from "../../views/ManagerAppointmentHistory/Man
 import ManagerPurchaseHistory from "../../views/ManagerPurchaseHistory/ManagerPurchaseHistory"
 import ManagerSendEmails from "../../views/ManagerSendEmails/ManagerSendEmails"
 import ManagerAddNews from "../../views/ManagerAddNews/ManagerAddNews"
+import ManagerUserFeedback from "../../views/ManagerUserFeedback/ManagerUserFeedback"
 
 function Routing() {
   return (
@@ -76,6 +77,10 @@ function Routing() {
         element={<ManagerSendEmails />}
       />
       <Route path="/managerPage/addNews" element={<ManagerAddNews />} />
+      <Route
+        path="/managerPage/feedbackHistory"
+        element={<ManagerUserFeedback />}
+      />
     </Routes>
   )
 }

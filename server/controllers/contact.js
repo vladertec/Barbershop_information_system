@@ -1,61 +1,19 @@
 import mongoose from "mongoose"
-import Barber from "../models/barber.js"
+import Contact from "../models/contact.js"
 
-const add = async (req, res) => {
-  const { nameSurname, login, password } = req.body
-  const barber = await Barber.create({
-    nameSurname,
-    login,
-    password,
+const addContactFeedback = async (req, res) => {
+  const { name, surname, email, message } = req.body
+  const contactFeedback = await Contact.create({
+    name,
+    surname,
+    email,
+    message,
   })
-  res.json(barber)
+  res.json(contactFeedback)
+}
+const getAllContactFeedbacks = async (req, res) => {
+  const contactFeedbacks = await Contact.find()
+  res.json(contactFeedbacks)
 }
 
-const getAll = async (req, res) => {
-  const barber = await Barber.find()
-  res.json(barber)
-}
-
-const getOne = async (req, res) => {
-  const { barberId } = req.params
-  const isValid = mongoose.Types.ObjectId.isValid(barberId)
-  if (!isValid) {
-    return res.status(404).json({ status: 404, message: "User not found" })
-  }
-  const barber = await Barber.findById(barberId)
-  if (!barber) {
-    return res.status(404).json({ status: 404, message: "User not found" })
-  }
-  res.json(barber)
-}
-
-const update = async (req, res) => {
-  const { barberId } = req.params
-  const isValid = mongoose.Types.ObjectId.isValid(barberId)
-  if (!isValid) {
-    return res.status(404).json({ status: 404, message: "User not found" })
-  }
-  const barber = await Barber.findByIdAndUpdate(barberId, {
-    nameSurname,
-    login,
-    password,
-  })
-
-  res.json(barber)
-}
-
-const deleteOne = async (req, res) => {
-  const { barberId } = req.params
-  const isValid = mongoose.Types.ObjectId.isValid(barberId)
-  if (!isValid) {
-    return res.status(404).json({ status: 404, message: "User not found" })
-  }
-  try {
-    await Barber.deleteOne({ _id: barberId })
-    res.sendStatus(200)
-  } catch {
-    res.sendStatus(500)
-  }
-}
-
-export default { add, getAll, getOne, update, deleteOne }
+export default { addContactFeedback, getAllContactFeedbacks }

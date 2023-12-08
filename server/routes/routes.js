@@ -27,12 +27,7 @@ router.patch(
   VisitController.updateVisit
 )
 
-router.get(
-  "/visits",
-  authenticMiddleware,
-  roleMiddleware(["ADMIN"]),
-  VisitController.getAllVisits
-)
+router.get("/visits", authenticMiddleware, VisitController.getAllVisits)
 
 router.post("/news", NewsController.add)
 
@@ -57,11 +52,14 @@ router.get(
   PurсhaseController.getAllPurchases
 )
 
-router.post("/contact", ContactController.add)
+router.post("/contact", ContactController.addContactFeedback)
 
-router.get("/contact", ContactController.getAll)
-
-router.delete("/contact/:contactId", ContactController.deleteOne)
+router.get(
+  "/contact",
+  authenticMiddleware,
+  roleMiddleware(["ADMIN"]),
+  ContactController.getAllContactFeedbacks
+)
 
 router.post("/email", EmailController.add)
 

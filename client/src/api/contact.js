@@ -8,3 +8,16 @@ export const sendContact = async (contactMessage) => {
     return err
   }
 }
+
+export const getAllContactFeedbacks = async (token) => {
+  try {
+    const { data } = await axios.get(`/api/contact`, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    })
+    return data
+  } catch (err) {
+    return err
+  }
+}

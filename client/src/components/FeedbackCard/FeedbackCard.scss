@@ -1,0 +1,34 @@
+.feedback-card {
+  color: white;
+  font-family: "Arima Madurai", serif;
+  margin: 2% 0;
+  border: 1px solid #b48e40;
+  border-radius: 10px;
+  padding: 2%;
+
+  &__text {
+    font-size: 2vw;
+    margin-top: 2%;
+  }
+
+  &__message {
+    font-size: 2vw;
+    color: #b48e40;
+    font-weight: bold;
+  }
+  &:hover {
+    opacity: 80%;
+  }
+
+  @include phone{
+    padding: 4%;
+    &__text {
+        font-size: 2.5vw;
+        margin-top: 3%;
+      }
+    
+      &__message {
+        font-size: 2.5vw;
+      }
+  }
+}

@@ -102,6 +102,9 @@ const UserView = () => {
           >
             See appointments
           </Link>
+          <Link to="/managerPage/feedbackHistory" className="manager-page__btn">
+            See feedbacks
+          </Link>
           <Link to="/managerPage/purchaseHistory" className="manager-page__btn">
             See orders
           </Link>

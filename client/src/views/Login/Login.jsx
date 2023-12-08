@@ -44,7 +44,7 @@ const Login = () => {
       <div className="login__login-container">
         <img
           className="login__img"
-          src="./img/Logo.svg"
+          src="./img/Logo.png"
           alt="Business view - Reports"
         />
         <div>

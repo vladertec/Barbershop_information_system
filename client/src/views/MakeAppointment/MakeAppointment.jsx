@@ -1,15 +1,16 @@
 import React, { useEffect, useState } from "react"
 import { Formik } from "formik"
 import { Link, useNavigate } from "react-router-dom"
-import { createVisit } from "../../api/visit"
 import Error from "../Error/Error"
 import { getBarbers } from "../../api/barber"
 import emailjs from "emailjs-com"
+import { createVisit, getAllVisits } from "../../api/visit"
 
 const MakeAppointment = () => {
   const navigate = useNavigate()
   const [barbers, setBarbers] = useState([])
-
+  const [appointments, setAppointments] = useState([])
+  const [availableTimes, setAvailableTimes] = useState([])
   const [appointmentObject, setAppointmentObject] = useState({
     name: "",
     surname: "",
@@ -26,8 +27,19 @@ const MakeAppointment = () => {
       const result = await getBarbers()
       setBarbers(result)
     }
+    const visits = async () => {
+      const result = await getAllVisits(localStorage.getItem("accessToken"))
+      setAppointments(result)
+    }
     namesBarbers()
+    visits()
   }, [])
+
+  useEffect(() => {
+    if (appointmentObject.date) {
+      generateAvailableTimes()
+    }
+  }, [appointmentObject.date, appointments])
 
   const sendEmail = (email, userName, date, time) => {
     emailjs
@@ -65,8 +77,42 @@ const MakeAppointment = () => {
       )
       navigate("/appointment/success")
     } else {
-      ;<Error />
+      <Error />
     }
+  }
+
+  const generateAvailableTimes = () => {
+    const takenTimes = appointments
+      .filter((appointment) =>
+        isSameDay(appointment.date, appointmentObject.date)
+      )
+      .map((appointment) => appointment.time)
+
+    const allTimes = generateAllTimes()
+    const freeTimes = allTimes.filter((time) => !takenTimes.includes(time))
+
+    setAvailableTimes(freeTimes)
+  }
+
+  const generateAllTimes = () => {
+    const allTimes = []
+    const startHour = 10
+    const endHour = 20 // 8 вечора
+
+    for (let hours = startHour; hours < endHour; hours++) {
+      for (let minutes = 0; minutes < 60; minutes += 30) {
+        const formattedHours = String(hours).padStart(2, "0")
+        const formattedMinutes = String(minutes).padStart(2, "0")
+        const timeString = `${formattedHours}:${formattedMinutes}`
+        allTimes.push(timeString)
+      }
+    }
+
+    return allTimes
+  }
+
+  const isSameDay = (date1, date2) => {
+    return date1 === date2
   }
 
   return (
@@ -217,33 +263,34 @@ const MakeAppointment = () => {
             </select>
 
             <input
-              className="book-form__input"
               type="date"
-              name="date"
-              onChange={handleChange}
-              onBlur={handleBlur}
+              className="book-form__input"
               value={appointmentObject.date}
-              onInput={(e) =>
+              onChange={(e) =>
                 setAppointmentObject({
                   ...appointmentObject,
                   date: e.target.value,
                 })
               }
             />
-            <input
+
+            <select
               className="book-form__input"
-              type="time"
-              name="time"
-              onChange={handleChange}
-              onBlur={handleBlur}
               value={appointmentObject.time}
-              onInput={(e) =>
+              onChange={(e) =>
                 setAppointmentObject({
                   ...appointmentObject,
                   time: e.target.value,
                 })
               }
-            />
+            >
+              {availableTimes.map((time) => (
+                <option key={time} value={time}>
+                  {time}
+                </option>
+              ))}
+            </select>
+
             <Link to="/appointment/success">
               <button
                 className="book-form__btn"

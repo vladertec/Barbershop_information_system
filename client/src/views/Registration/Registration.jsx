@@ -36,7 +36,7 @@ const Registration = () => {
       <div className="registration__registration-container">
         <img
           className="registration__img"
-          src="./img/Logo.svg"
+          src="./img/Logo.png"
           alt="Business view - Reports"
         />
         <form
