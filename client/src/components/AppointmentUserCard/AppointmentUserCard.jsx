@@ -1,4 +1,3 @@
-import { useEffect, useState } from "react"
 import { deleteVisit } from "../../api/visit"
 import Error from "../../views/Error/Error"
 

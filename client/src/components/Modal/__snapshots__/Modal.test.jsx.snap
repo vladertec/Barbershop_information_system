@@ -1,0 +1,35 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Modal /> component do snapshot 1`] = `
+<div>
+  <div
+    class="modal"
+  >
+    <div
+      class="modal__container"
+    >
+      <button
+        class="modal__button-x"
+      >
+        X
+      </button>
+    </div>
+    <div
+      class="modal__text-container"
+    >
+      <h3
+        class="modal__text"
+      >
+        Your products have been added to the 
+      </h3>
+      <div>
+        <button
+          class="modal__button"
+        >
+          Ok
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+`;

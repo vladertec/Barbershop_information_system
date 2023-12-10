@@ -8,8 +8,6 @@
     "@emotion/styled": "^11.10.4",
     "@mui/icons-material": "^5.10.14",
     "@mui/material": "^5.10.14",
-    "@testing-library/jest-dom": "^5.16.5",
-    "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
     "axios": "^1.2.1",
     "emailjs-com": "^3.2.0",
@@ -62,7 +60,10 @@
     ]
   },
   "devDependencies": {
-    "sass": "^1.68.0"
+    "@testing-library/jest-dom": "^6.1.5",
+    "@testing-library/react": "^14.1.2",
+    "sass": "^1.68.0",
+    "user-event": "^4.0.0"
   },
   "proxy": "http://localhost:4000"
 }

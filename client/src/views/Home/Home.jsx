@@ -76,9 +76,9 @@ function Home() {
 
       <section className="home-wrapper__about statistic">
         <div className="statistic__video-container">
-          {/* <video className="statistic__video" controls autoPlay>
+          <video className="statistic__video" controls autoPlay>
             <source src="./video/barber.mp4" type="video/mp4" />
-          </video> */}
+          </video>
           <div className="statistic__about text-info">
             <p className="text-info__about">About Us</p>
             <h2 className="text-info__style">The Best Barber Tranding Style</h2>

@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react"
 import ItemPagination from "../../components/Pagination/ItemPagination"
-import PurchaseCard from "../../components/PurchaseCard/PurchaseCard"
 import { getAllVisits } from "../../api/visit"
 import ManagerAppointmentCard from "../../components/ManagerAppointmentCard/ManagerAppointmentCard"
 

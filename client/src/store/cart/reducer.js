@@ -11,6 +11,7 @@ export const getCartListFromLS = () => {
 
 const initialState = {
   cartList: getCartListFromLS(),
+  modalIsOpen: false,
 }
 
 const reducer = (state = initialState, action) => {

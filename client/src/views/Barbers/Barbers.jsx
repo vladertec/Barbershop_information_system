@@ -15,8 +15,8 @@ const Barbers = () => {
     <div className="barbers-wrapper">
       <div className="barbers-wrapper__slider">
         <SimpleImageSlider
-          width={1000}
-          height={800}
+          width={800}
+          height={600}
           images={images}
           showBullets={true}
           showNavs={true}

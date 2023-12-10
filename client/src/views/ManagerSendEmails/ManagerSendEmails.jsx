@@ -3,9 +3,11 @@ import React, { useEffect, useState } from "react"
 import { useFormik } from "formik"
 import * as Yup from "yup"
 import { getAllEmails } from "../../api/email"
+import { useNavigate } from "react-router"
 
 const ManagerSendEmails = () => {
   const [emailHistory, setEmailHistory] = useState([])
+  const navigate = useNavigate()
 
   useEffect(() => {
     const emailInformation = async () => {
@@ -55,6 +57,7 @@ const ManagerSendEmails = () => {
     onSubmit: (values) => {
       emailHistory.map((email) => {
         sendEmail(email.email, values.text)
+        navigate("/success")
       })
     },
   })

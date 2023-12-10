@@ -73,11 +73,19 @@ const DetailedProductCard = () => {
             </button>
             <button
               className="detailed-product__btn"
+              onClick={() => {
+                navigate("/favourite")
+              }}
+            >
+             Add to favourite
+            </button>
+            <button
+              className="detailed-product__btn"
               onClick={(event) =>
                 buttonBuyClick(event, detailedProduct.vendorCode)
               }
             >
-              Add in cart
+              Add to cart
             </button>
           </div>
         </div>

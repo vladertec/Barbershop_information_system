@@ -2,7 +2,6 @@ import { useEffect, useState } from "react"
 import { getUserPurchaseHistory } from "../../api/user"
 import ItemPagination from "../../components/Pagination/ItemPagination"
 import PurchaseCard from "../../components/PurchaseCard/PurchaseCard"
-import { CircularProgress } from "@mui/material"
 
 const UserPurchaseHistory = () => {
   const [purchaseHistory, setPurchaseHistory] = useState([])

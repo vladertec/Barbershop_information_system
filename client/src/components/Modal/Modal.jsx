@@ -1,4 +1,5 @@
 const Modal = ({ updateModalIsOpen, type }) => {
+  
   return (
     <div className="modal">
       <div className="modal__container">

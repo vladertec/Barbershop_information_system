@@ -1,6 +1,6 @@
 import { useSelector } from "react-redux"
 import CartCard from "../../components/CartCard/CartCard"
-import { useEffect, useState } from "react"
+import { useEffect } from "react"
 import { useNavigate } from "react-router"
 
 const Cart = () => {

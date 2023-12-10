@@ -77,7 +77,7 @@ const PurchaseDetails = () => {
       )
       dispatch(removeAllCart([]))
     } else {
-      ;<Error />
+      <Error />
     }
   }
 

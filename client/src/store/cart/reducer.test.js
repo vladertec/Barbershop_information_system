@@ -10,14 +10,12 @@ describe("cart reducer", () => {
       },
     ],
     modalIsOpen: false,
-    buyModalIsOpen: false,
   }
 
   it("should return default value", () => {
     expect(reducer(undefined, {})).toEqual({
       cartList: [],
       modalIsOpen: false,
-      buyModalIsOpen: false,
     })
   })
 
@@ -71,20 +69,6 @@ describe("cart reducer", () => {
     })
   })
 
-  describe("for HIDE_MODAL action", () => {
-    it("should hide modal when click to add to cart product", () => {
-      expect(
-        reducer(state, {
-          type: "HIDE_MODAL",
-          payload: true,
-        })
-      ).toEqual({
-        ...state,
-        modalIsOpen: true,
-      })
-    })
-  })
-
   describe("for REMOVE_ALL_PRODUCT_FROM_CART action", () => {
     it("should remove all products from cart", () => {
       expect(
@@ -99,31 +83,4 @@ describe("cart reducer", () => {
     })
   })
 
-  describe("for SHOW_BUY_MODAL action", () => {
-    it("should show modal when click buy product", () => {
-      expect(
-        reducer(state, {
-          type: "SHOW_BUY_MODAL",
-          payload: true,
-        })
-      ).toEqual({
-        ...state,
-        buyModalIsOpen: true,
-      })
-    })
-  })
-
-  describe("for HIDE_BUY_MODAL action", () => {
-    it("should hide modal when click buy product", () => {
-      expect(
-        reducer(state, {
-          type: "HIDE_BUY_MODAL",
-          payload: false,
-        })
-      ).toEqual({
-        ...state,
-        buyModalIsOpen: false,
-      })
-    })
-  })
 })
