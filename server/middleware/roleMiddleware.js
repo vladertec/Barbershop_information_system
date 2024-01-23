@@ -22,7 +22,7 @@ export default function (roles) {
       })
 
       if (!hasRole) {
-        res.status(400).json({ message: "Нou don't have access!" })
+        res.status(400).json({ message: "You don't have access!" })
       }
 
       next()

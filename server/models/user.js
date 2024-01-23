@@ -13,6 +13,7 @@ const userSchema = new mongoose.Schema(
     favouriteList: { type: Array },
     visits: [{ type: mongoose.Schema.Types.ObjectId, ref: "visit" }],
     purchases: { type: Array },
+    barberNumber: { type: Number },
   },
   { versionKey: false }
 )
@@ -20,3 +21,12 @@ const userSchema = new mongoose.Schema(
 const User = mongoose.model("user", userSchema)
 
 export default User
+
+
+
+
+
+
+
+
+

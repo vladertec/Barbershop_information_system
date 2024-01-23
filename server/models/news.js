@@ -14,3 +14,9 @@ const newsSchema = new mongoose.Schema(
 const News = mongoose.model("news", newsSchema)
 
 export default News
+
+
+
+
+
+

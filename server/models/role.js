@@ -10,3 +10,9 @@ const roleSchema = new mongoose.Schema(
 const Role = mongoose.model("role", roleSchema)
 
 export default Role
+
+
+
+
+
+

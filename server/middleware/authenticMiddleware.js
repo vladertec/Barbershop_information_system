@@ -1,6 +1,5 @@
 import jwt from "jsonwebtoken"
 import dotenv from "dotenv"
-
 dotenv.config()
 
 export default function (req, res, next) {
@@ -21,3 +20,17 @@ export default function (req, res, next) {
     res.status(400).json({ message: "User not authenticated!" })
   }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+

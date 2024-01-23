@@ -35,6 +35,19 @@ export const updateUser = async (token, updateData) => {
   }
 }
 
+export const updateNumberBarbershop = async (token, number) => {
+  try {
+    const { data } = await axios.patch(`/api/userNumberBarbershop`, number, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    })
+    return data
+  } catch (err) {
+    return err
+  }
+}
+
 export const getUserAppointmentHistory = async (token) => {
   try {
     const { data } = await axios.get(`/api/user/appointmentHistory`, {
@@ -47,7 +60,6 @@ export const getUserAppointmentHistory = async (token) => {
     return err
   }
 }
-
 
 export const getUserPurchaseHistory = async (token) => {
   try {

@@ -10,3 +10,8 @@ const emailSchema = new mongoose.Schema(
 const Email = mongoose.model("email", emailSchema)
 
 export default Email
+
+
+
+
+

@@ -25,5 +25,8 @@ const visitSchema = new mongoose.Schema(
 )
 
 const Visit = mongoose.model("visit", visitSchema)
-
 export default Visit
+
+
+
+

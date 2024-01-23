@@ -21,3 +21,11 @@ const purchaseSchema = new mongoose.Schema(
 const Purchase = mongoose.model("purchase", purchaseSchema)
 
 export default Purchase
+
+
+
+
+
+
+
+

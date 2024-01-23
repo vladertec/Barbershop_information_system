@@ -46,21 +46,19 @@ const getBarbers = async (req, res) => {
 const updateUser = async (req, res) => {
   try {
     if (!req.headers.authorization) {
-      return res
-        .status(401)
-        .json({ error: "Отсутствует заголовок Authorization" })
+      return res.status(401).json({ error: "Without header Authorization" })
     }
 
     const token = req.headers.authorization.split(" ")[1]
     if (!token) {
-      return res.status(401).json({ error: "Отсутствует токен авторизации" })
+      return res.status(401).json({ error: "You don`t have authorization" })
     }
 
     const decodedInformation = jwt.verify(token, process.env.JWT_ACCESS_KEY)
     const user = await User.findById(decodedInformation.id)
 
     if (!user) {
-      return res.status(404).json({ error: "Пользователь не найден" })
+      return res.status(404).json({ error: "User not found" })
     }
 
     for (const key in req.body) {
@@ -147,6 +145,27 @@ const getUserPurchaseHistory = async (req, res) => {
   }
 }
 
+const updateNumberBarbershop = async (req, res) => {
+  try {
+    const token = req.headers.authorization.split(" ")[1]
+    const decodedInformation = jwt.verify(token, process.env.JWT_ACCESS_KEY)
+
+    const user = await User.findById(decodedInformation.id)
+
+    const { number } = req.body
+
+    user.barberNumber = number
+    await user.save()
+
+    res
+      .status(200)
+      .json({ message: "Barber number updated successfully", user })
+  } catch (error) {
+    console.error("Error retrieving user purchase history:", error)
+    res.status(500).json({ message: "Internal Server Error" })
+  }
+}
+
 export default {
   getUser,
   updateUser,
@@ -154,4 +173,5 @@ export default {
   getBarbers,
   getAppointmentHistory,
   getUserPurchaseHistory,
+  updateNumberBarbershop,
 }

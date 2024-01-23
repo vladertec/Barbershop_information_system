@@ -27,6 +27,15 @@ router.patch(
   VisitController.updateVisit
 )
 
+router.post(
+  "/registration",
+  [
+    check("username", "Name can`t be empty").notEmpty(),
+    // check("username", "Name can`t be short").isLength({ min: 4, max: 10 }),
+  ],
+  AuthenticController.registration
+)
+
 router.get("/visits", authenticMiddleware, VisitController.getAllVisits)
 
 router.post("/news", NewsController.add)
@@ -92,6 +101,8 @@ router.get(
 router.get("/user", authenticMiddleware, UserController.getUser)
 
 router.patch("/user", authenticMiddleware, UserController.updateUser)
+
+router.patch("/userNumberBarbershop", authenticMiddleware, UserController.updateNumberBarbershop)
 
 router.get("/barber", authenticMiddleware, UserController.getBarber)
 

@@ -1,8 +1,8 @@
 import React from "react"
-import { Formik, Field, FieldArray, ErrorMessage, Form } from "formik"
-import * as Yup from "yup"
 import { addNewNews } from "../../api/news"
 import { useNavigate } from "react-router-dom"
+import { Formik, Field, FieldArray, ErrorMessage, Form } from "formik"
+import * as Yup from "yup"
 
 const validationSchema = Yup.object().shape({
   name: Yup.string().required("Введите имя"),
@@ -25,12 +25,10 @@ const initialValues = {
 
 const ManagerAddNews = () => {
   const navigate = useNavigate()
-
   const handleSubmit = async (values) => {
     await addNewNews(values)
     navigate("/success")
   }
-
   return (
     <Formik
       initialValues={initialValues}

@@ -11,7 +11,16 @@ const productSchema = new mongoose.Schema(
   },
   { versionKey: false }
 )
-
 const Product = mongoose.model("product", productSchema)
 
 export default Product
+
+
+
+
+
+
+
+
+
+

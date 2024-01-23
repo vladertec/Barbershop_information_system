@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import { getUser, updateUser } from "../../api/user"
+import { getUser, updateNumberBarbershop, updateUser } from "../../api/user"
 import { Link } from "react-router-dom"
 
 const BarberView = () => {
@@ -7,6 +7,10 @@ const BarberView = () => {
     name: "",
     surname: "",
     email: "",
+    number: "",
+  })
+
+  const [barbershopNumber, setBarbershopNumber] = useState({
     number: "",
   })
 
@@ -32,9 +36,25 @@ const BarberView = () => {
     }))
   }
 
+  const handleChange2 = (e) => {
+    const { name, value } = e.target
+    setBarbershopNumber((prevData) => ({
+      ...prevData,
+      [name]: value,
+    }))
+  }
+
   const handleSubmit = async (e) => {
     e.preventDefault()
     await updateUser(localStorage.getItem("accessToken"), userData)
+  }
+
+  const handleSubmit2 = async (e) => {
+    e.preventDefault()
+    await updateNumberBarbershop(
+      localStorage.getItem("accessToken"),
+      barbershopNumber
+    )
   }
 
   return (
@@ -102,6 +122,27 @@ const BarberView = () => {
             <div className="user-page__btn-update">
               <button className="user-page__btn" type="submit">
                 Update information
+              </button>
+            </div>
+          </form>
+
+          <form onSubmit={handleSubmit2} className="user-page__form">
+            <div className="user-page__information">
+              <label className="user-page__label" htmlFor="number">
+                Barbershop number:
+              </label>
+              <input
+                className="user-page__name-field"
+                placeholder="Barbershop number"
+                id="number"
+                name="number"
+                value={barbershopNumber.number}
+                onChange={handleChange2}
+              />
+            </div>
+            <div className="user-page__btn-update">
+              <button className="user-page__btn" type="submit">
+                Add number
               </button>
             </div>
           </form>

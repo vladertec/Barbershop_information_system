@@ -3,7 +3,6 @@ import jwt from "jsonwebtoken"
 import dotenv from "dotenv"
 import User from "../models/user.js"
 import mongoose from "mongoose"
-import Barber from "../models/barber.js"
 
 dotenv.config()
 
@@ -58,29 +57,25 @@ const deleteVisit = async (req, res) => {
 
 const updateVisit = async (req, res) => {
   const { visitId } = req.params
-  const { isDone } = req.body // Предполагается, что isDone приходит в теле запроса
+  const { isDone } = req.body
 
   const isValid = mongoose.Types.ObjectId.isValid(visitId)
 
-  // Проверка валидности ObjectId
   if (!isValid) {
     return res.status(400).json({ error: "Invalid visitId" })
   }
 
   try {
-    // Находим визит по его идентификатору и обновляем isDone
     const visit = await Visit.findByIdAndUpdate(
       visitId,
       { isDone: isDone },
       { new: true }
     )
 
-    // Проверка, найден ли визит
     if (!visit) {
       return res.status(404).json({ error: "Visit not found" })
     }
 
-    // Отправляем обновленный визит в ответе
     res.json(visit)
   } catch (error) {
     console.error("Error updating visit:", error)

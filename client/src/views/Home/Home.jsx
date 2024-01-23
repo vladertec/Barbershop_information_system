@@ -76,7 +76,7 @@ function Home() {
 
       <section className="home-wrapper__about statistic">
         <div className="statistic__video-container">
-          <video className="statistic__video" controls autoPlay>
+          <video className="statistic__video" controls>
             <source src="./video/barber.mp4" type="video/mp4" />
           </video>
           <div className="statistic__about text-info">

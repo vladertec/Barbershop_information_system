@@ -97,7 +97,7 @@ const MakeAppointment = () => {
   const generateAllTimes = () => {
     const allTimes = []
     const startHour = 10
-    const endHour = 20 // 8 вечора
+    const endHour = 20 
 
     for (let hours = startHour; hours < endHour; hours++) {
       for (let minutes = 0; minutes < 60; minutes += 30) {
