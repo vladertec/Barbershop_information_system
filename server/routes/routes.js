@@ -83,7 +83,6 @@ router.post(
   "/registration",
   [
     check("username", "Name can`t be empty").notEmpty(),
-    // check("username", "Name can`t be short").isLength({ min: 4, max: 10 }),
   ],
   AuthenticController.registration
 )
