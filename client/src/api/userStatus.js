@@ -1,8 +1,8 @@
-import axios from "axios"
+import instance from "../ulits/instance"
 
 export const registerUser = async (value) => {
   try {
-    const answer = await axios.post(`api/registration`, value)
+    const answer = await instance.post(`api/registration`, value)
     return answer
   } catch (err) {
     return err
@@ -11,7 +11,7 @@ export const registerUser = async (value) => {
 
 export const loginUser = async (value) => {
   try {
-    const answer = await axios.post(`api/login`, value)
+    const answer = await instance.post(`api/login`, value)
     return answer
   } catch (err) {
     return err

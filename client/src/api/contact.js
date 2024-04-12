@@ -1,8 +1,8 @@
-import axios from "axios"
+import instance from "../ulits/instance"
 
 export const sendContact = async (contactMessage) => {
   try {
-    const answer = await axios.post(`/api/contact`, contactMessage)
+    const answer = await instance.post(`/api/contact`, contactMessage)
     return answer
   } catch (err) {
     return err
@@ -11,7 +11,7 @@ export const sendContact = async (contactMessage) => {
 
 export const getAllContactFeedbacks = async (token) => {
   try {
-    const { data } = await axios.get(`/api/contact`, {
+    const { data } = await instance.get(`/api/contact`, {
       headers: {
         Authorization: `Bearer ${token}`,
       },

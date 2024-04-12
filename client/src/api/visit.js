@@ -1,8 +1,8 @@
-import axios from "axios"
+import instance from "../ulits/instance"
 
 export const createVisit = async (token, visit) => {
   try {
-    const data = await axios.post(`/api/visit`, visit, {
+    const data = await instance.post(`/api/visit`, visit, {
       headers: {
         Authorization: `Bearer ${token}`,
       },
@@ -15,7 +15,7 @@ export const createVisit = async (token, visit) => {
 
 export const deleteVisit = async (token, id) => {
   try {
-    const data = await axios.delete(`/api/visit/${id}`, {
+    const data = await instance.delete(`/api/visit/${id}`, {
       headers: {
         Authorization: `Bearer ${token}`,
       },
@@ -28,7 +28,7 @@ export const deleteVisit = async (token, id) => {
 
 export const updateVisit = async (token, id, isServiceReady) => {
   try {
-    const data = await axios.patch(`/api/visit/${id}`, isServiceReady, {
+    const data = await instance.patch(`/api/visit/${id}`, isServiceReady, {
       headers: {
         Authorization: `Bearer ${token}`,
       },
@@ -41,7 +41,7 @@ export const updateVisit = async (token, id, isServiceReady) => {
 
 export const getAllVisits = async (token) => {
   try {
-    const { data } = await axios.get(`/api/visits`, {
+    const { data } = await instance.get(`/api/visits`, {
       headers: {
         Authorization: `Bearer ${token}`,
       },

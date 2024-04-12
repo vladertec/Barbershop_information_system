@@ -1,8 +1,8 @@
-import axios from "axios"
+import instance from "../ulits/instance"
 
 export const getUsers = async () => {
   try {
-    const { data } = await axios.get(`/api/users`)
+    const { data } = await instance.get(`/api/users`)
     return data
   } catch (err) {
     return err
@@ -11,7 +11,7 @@ export const getUsers = async () => {
 
 export const getUser = async (token) => {
   try {
-    const { data } = await axios.get(`/api/user`, {
+    const { data } = await instance.get(`/api/user`, {
       headers: {
         Authorization: `Bearer ${token}`,
       },
@@ -24,7 +24,7 @@ export const getUser = async (token) => {
 
 export const updateUser = async (token, updateData) => {
   try {
-    const { data } = await axios.patch(`/api/user`, updateData, {
+    const { data } = await instance.patch(`/api/user`, updateData, {
       headers: {
         Authorization: `Bearer ${token}`,
       },
@@ -37,7 +37,7 @@ export const updateUser = async (token, updateData) => {
 
 export const updateNumberBarbershop = async (token, number) => {
   try {
-    const { data } = await axios.patch(`/api/userNumberBarbershop`, number, {
+    const { data } = await instance.patch(`/api/userNumberBarbershop`, number, {
       headers: {
         Authorization: `Bearer ${token}`,
       },
@@ -50,7 +50,7 @@ export const updateNumberBarbershop = async (token, number) => {
 
 export const getUserAppointmentHistory = async (token) => {
   try {
-    const { data } = await axios.get(`/api/user/appointmentHistory`, {
+    const { data } = await instance.get(`/api/user/appointmentHistory`, {
       headers: {
         Authorization: `Bearer ${token}`,
       },
@@ -63,7 +63,7 @@ export const getUserAppointmentHistory = async (token) => {
 
 export const getUserPurchaseHistory = async (token) => {
   try {
-    const { data } = await axios.get(`/api/user/purchaseHistory`, {
+    const { data } = await instance.get(`/api/user/purchaseHistory`, {
       headers: {
         Authorization: `Bearer ${token}`,
       },
